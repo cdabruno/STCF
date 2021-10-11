@@ -1,7 +1,7 @@
 package database;
 import java.util.*;
 
-public class Team extends User {
+public class Team {
   private int idTeam;
   private String name;
   //private List<Player> players;
@@ -18,7 +18,7 @@ public class Team extends User {
     this.idTeam = idTeam;
   }
   public String getName() {
-    return name;
+    return this.name;
   }
   public void setName(String name) {
     this.name = name;

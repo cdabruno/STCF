@@ -65,7 +65,7 @@ public class SearchUI {
 			scrollPane.setVisible(false);
 		} else {
 			for (Player p : resultMap.keySet()) {
-				model.addRow(new Object[] { p.getName(), resultMap.get(p), p.getCurrentValue() });
+				model.addRow(new Object[] { p.getName(), resultMap.get(p).getName(), p.getCurrentValue() });
 			}
 
 			scrollPane.setVisible(true);
@@ -121,9 +121,13 @@ public class SearchUI {
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
 		});
 		scrollPane.setViewportView(table);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setVisible(false);
+		
 	}
 }
