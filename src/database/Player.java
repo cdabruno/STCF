@@ -18,50 +18,44 @@ public class Player {
     this.onSale = onSale;
   }
 
-  public String getName(){
+  public String getName() {
     return this.name;
   }
 
-  public void setName(String name){
+  public void setName(String name) {
     this.name = name;
   }
 
-  public int getId(){
+  public int getId() {
     return this.id;
   }
-  
-  public void setId(int id){
+
+  public void setId(int id) {
     this.id = id;
   }
 
-  public int getIdTeam(){
+  public int getIdTeam() {
     return this.idTeam;
   }
-  
-  public void setIdTeam(int idTeam){
+
+  public void setIdTeam(int idTeam) {
     this.idTeam = idTeam;
   }
 
-  public float getCurrentValue(){
+  public float getCurrentValue() {
     return this.currentValue;
   }
-  
-  public void setCurrentValue(float currentValue){
+
+  public void setCurrentValue(float currentValue) {
     this.currentValue = currentValue;
   }
 
-  public boolean getOnSale(){
+  public boolean getOnSale() {
     return this.onSale;
   }
-  
-  public void setOnSale(boolean onSale){
+
+  public void setOnSale(boolean onSale) {
     this.onSale = onSale;
   }
 
-
-
 }
-
-
-
-

@@ -1,15 +1,14 @@
 package database;
+
 import java.util.*;
 
-
-
 public class Data {
-    private Map<Integer, Player> players;
-    private Map<Integer, Team> teams;
-    
-    public Data(){
+    private static Map<Integer, Player> players;
+    private static Map<Integer, Team> teams;
+
+    static {
         players = new HashMap<Integer, Player>();
-        teams = new HashMap<Integer, Team>(); 
+        teams = new HashMap<Integer, Team>();
 
         players.put(01, new Player("Junior Baiano", 01, 01, 1000.00f, false));
         players.put(02, new Player("Leandrao", 02, 02, 2000.00f, false));
@@ -25,31 +24,28 @@ public class Data {
 
     }
 
-    public List<Player> getPlayers() {
+    public static List<Player> getPlayers() {
         return new ArrayList<Player>(players.values());
     }
 
-    public void setPlayers(Map<Integer, Player> players) {
-        this.players = players;
+    public static void setPlayers(Map<Integer, Player> newPlayers) {
+        players = newPlayers;
     }
 
-    public List<Team> getTeams() {
+    public static List<Team> getTeams() {
         return new ArrayList<Team>(teams.values());
     }
 
-    public void setTeams(Map<Integer, Team> teams) {
-        this.teams = teams;
+    public static void setTeams(Map<Integer, Team> newTeams) {
+        teams = newTeams;
     }
 
-    public Team getTeamById(int id){
+    public static Team getTeamById(int id) {
         return teams.get(id);
     }
 
-    public Player getPlayerById(int id){
+    public static Player getPlayerById(int id) {
         return players.get(id);
     }
 
-    
-
-    
 }
