@@ -1,49 +1,55 @@
 package database;
+import java.util.*;
 
 
 
+public class Data {
+    private Map<Integer, Player> players;
+    private Map<Integer, Team> teams;
+    
+    public Data(){
+        players = new HashMap<Integer, Player>();
+        teams = new HashMap<Integer, Team>(); 
 
-public class UI {
-    public class main{}
+        players.put(01, new Player("Junior Baiano", 01, 01, 1000.00f, false));
+        players.put(02, new Player("Leandrao", 02, 02, 2000.00f, false));
+        players.put(03, new Player("Jucilei", 03, 03, 3000.00f, false));
+        players.put(04, new Player("Jobson", 04, 04, 4000.00f, false));
+        players.put(05, new Player("Gladstone", 05, 05, 5000.00f, true));
 
-    public class SearchUI {
-        
-    }
-}
+        teams.put(01, new Team("Central", 01));
+        teams.put(02, new Team("Boavista", 02));
+        teams.put(02, new Team("Boavista", 02));
+        teams.put(03, new Team("Sport", 03));
+        teams.put(04, new Team("Betim", 04));
 
-public class Business {
-    public class SearchOperations{
-        public List<Player> search(String searchString);
-    }
-}
-
-public class Database {
-    public List<Player> getPlayers();
-    public List<User> getUsers();
-    public List<Teams> getTeams();
-    public List<Transaction> getTransactions();
-    public List<Transaction> getBid();
-
-
-    public class Player {
-      public int getId();
-      public String getName();
-      public int getIdTeam();
-      public boolean getOnSale();
-      public List<Transaction> getOnSale();
     }
 
-    public class User {
-        public int getId();
-        public String getName();
+    public List<Player> getPlayers() {
+        return new ArrayList<Player>(players.values());
     }
 
-    public class Team extends User{
+    public void setPlayers(Map<Integer, Player> players) {
+        this.players = players;
     }
 
-    public class Transfer{
-        public int getId();// mesmo id do player
-        public float getCurrentValue();
-        public boolean get();
+    public List<Team> getTeams() {
+        return new ArrayList<Team>(teams.values());
     }
+
+    public void setTeams(Map<Integer, Team> teams) {
+        this.teams = teams;
+    }
+
+    public Team getTeamById(int id){
+        return teams.get(id);
+    }
+
+    public Player getPlayerById(int id){
+        return players.get(id);
+    }
+
+    
+
+    
 }
