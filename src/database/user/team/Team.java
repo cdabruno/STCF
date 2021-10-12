@@ -1,10 +1,9 @@
-package database;
+package database.user.team;
 import java.util.*;
 
 public class Team {
   private int idTeam;
   private String name;
-  //private List<Player> players;
 
   public Team(String name, int idTeam) {
     this.idTeam = idTeam;
@@ -23,12 +22,5 @@ public class Team {
   public void setName(String name) {
     this.name = name;
   }
-  
-  // public List<Player> getPlayers() {
-  //   return players;
-  // }
-  // public void setPlayers(List<Player> players) {
-  //   this.players = players;
-  // }
   
 }

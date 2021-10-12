@@ -1,6 +1,8 @@
-package ui;
+package ui.search_ui;
 
 import database.*;
+import database.player.Player;
+import database.user.team.Team;
 import business.search_operations.SearchPlayer;
 import java.awt.EventQueue;
 

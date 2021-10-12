@@ -1,4 +1,4 @@
-package database;
+package database.player;
 
 public class Player {
 
@@ -7,8 +7,6 @@ public class Player {
   private int idTeam;
   private float currentValue;
   private boolean onSale;
-  // private List<Offer> offers;
-  // private List<Team> off
 
   public Player(String name, int id, int idTeam, float currentValue, boolean onSale) {
     this.name = name;

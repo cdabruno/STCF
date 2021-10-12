@@ -4,8 +4,8 @@ import java.util.List;
 import database.*;
 import java.util.Map;
 import java.util.HashMap;
-
-import database.Player;
+import database.player.*;
+import database.user.team.*;
 
 public class SearchPlayer {
 
