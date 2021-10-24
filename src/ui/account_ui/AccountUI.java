@@ -95,7 +95,7 @@ public class AccountUI {
 				String[] loginParameters = {textName.getText(), password.getPassword().toString()};
 				if(AccountOperations.login(loginParameters[0], loginParameters[1])) {
 					frame.dispose();
-					if(AccountOperations.isAdmin(loginParameters[0], loginParameters[1])) {
+					if(AccountOperations.isAdmin(loginParameters[0])) {
 						ReportUI.main(loginParameters);
 					} else {
 						PlayerManagementUI.main(loginParameters);
