@@ -104,13 +104,13 @@ public class SearchUI {
 		btnBuscar.setBounds(10, 25, 85, 21);
 		frmBusca.getContentPane().add(btnBuscar);
 
-		JButton btnNewButton = new JButton("Comprar");
-		btnNewButton.setBounds(42, 390, 85, 21);
-		frmBusca.getContentPane().add(btnNewButton);
+		JButton btnBuy = new JButton("Comprar");
+		btnBuy.setBounds(42, 390, 85, 21);
+		frmBusca.getContentPane().add(btnBuy);
 
-		JButton btnNewButton_1 = new JButton("Pedir Empr\u00E9stimo");
-		btnNewButton_1.setBounds(186, 390, 180, 21);
-		frmBusca.getContentPane().add(btnNewButton_1);
+		JButton btnLoan = new JButton("Pedir Empr\u00E9stimo");
+		btnLoan.setBounds(186, 390, 180, 21);
+		frmBusca.getContentPane().add(btnLoan);
 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(20, 65, 436, 295);
