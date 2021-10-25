@@ -3,10 +3,12 @@ package database;
 import java.util.*;
 import database.player.*;
 import database.user.team.*;
+import database.user.*;
 
 public class Data {
     private static Map<Integer, Player> players;
     private static Map<Integer, Team> teams;
+    private static Map<Integer, User> users;
 
     static {
         players = new HashMap<Integer, Player>();
@@ -18,11 +20,11 @@ public class Data {
         players.put(04, new Player("Jobson", 04, 04, 4000.00f, true));
         players.put(05, new Player("Gladstone", 05, 05, 5000.00f, true));
 
-        teams.put(01, new Team("Central", 01));
-        teams.put(02, new Team("Boavista", 02));
-        teams.put(03, new Team("Sport", 03));
-        teams.put(04, new Team("Betim", 04));
-        teams.put(05, new Team("Gremio", 05));
+        teams.put(01, new Team("Central", 01, "12345678A@"));
+        teams.put(02, new Team("Boavista", 02, "12345678B@"));
+        teams.put(03, new Team("Sport", 03, "12345678C@"));
+        teams.put(04, new Team("Betim", 04, "12345678D@"));
+        teams.put(05, new Team("Gremio", 05, "12345678E@"));
 
     }
 
@@ -48,6 +50,22 @@ public class Data {
 
     public static Player getPlayerById(int id) {
         return players.get(id);
+    }
+
+    public static List<User> getUsers(){
+        return new ArrayList<User>(users.values());
+    }
+
+    public static void setUsers(Map<Integer, User> users) {
+        Data.users = users;
+    }
+    
+    public static Map<Integer, User> getHashUsers() {
+        return users;
+    }
+
+    public static void setHashUsers(Map<Integer, User> users) {
+        Data.users = users;
     }
 
 }
