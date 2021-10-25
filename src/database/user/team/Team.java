@@ -1,26 +1,10 @@
 package database.user.team;
+
+import database.user.*;
 import java.util.*;
 
-public class Team {
-  private int idTeam;
-  private String name;
-
-  public Team(String name, int idTeam) {
-    this.idTeam = idTeam;
-    this.name = name;
+public class Team extends User{
+  public Team(String name, int idUser, String password) {
+    super(name, idUser, password);
   }
-
-  public int getIdTeam() {
-    return idTeam;
-  }
-  public void setIdTeam(int idTeam) {
-    this.idTeam = idTeam;
-  }
-  public String getName() {
-    return this.name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-  
 }
