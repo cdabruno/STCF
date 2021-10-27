@@ -4,15 +4,18 @@ import java.util.*;
 import database.player.*;
 import database.user.team.*;
 import database.user.*;
+import database.transaction.*;
 
 public class Data {
     private static Map<Integer, Player> players;
     private static Map<Integer, Team> teams;
     private static Map<Integer, User> users;
+    private static Map<Integer, Transaction> transactions;
 
     static {
         players = new HashMap<Integer, Player>();
         teams = new HashMap<Integer, Team>();
+        transactions = new HashMap<Integer, Transaction>();
 
         players.put(01, new Player("Junior Baiano", 01, 01, 1000.00f, false));
         players.put(02, new Player("Leandrao", 02, 02, 2000.00f, true));
@@ -66,6 +69,14 @@ public class Data {
 
     public static void setHashUsers(Map<Integer, User> users) {
         Data.users = users;
+    }
+
+    public static Map<Integer, Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public static void setTransactions(Map<Integer, Transaction> transactions) {
+        Data.transactions = transactions;
     }
 
 }
