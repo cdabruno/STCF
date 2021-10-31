@@ -75,10 +75,14 @@ public class AccountUI {
 		btnCreateAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(AccountOperations.checkAccount(textName.getText())) {
-					JOptionPane.showMessageDialog(frame, "Conta já existente");
-				} else { 
-					AccountOperations.createAccount(textName.getText(), password.getPassword());
-					JOptionPane.showMessageDialog(frame, "Conta criada");
+					JOptionPane.showMessageDialog(frame, "Conta jï¿½ existente");
+				} else {
+					if (AccountOperations.checkPassword(password.getPassword())) {
+						AccountOperations.createAccount(textName.getText(), password.getPassword());
+						JOptionPane.showMessageDialog(frame, "Conta criada");
+					} else {
+						JOptionPane.showMessageDialog(frame, "Senha muito facil");
+					}
 				}
 				
 				
@@ -102,7 +106,7 @@ public class AccountUI {
 					}			
 					
 				} else { 
-					JOptionPane.showMessageDialog(frame, "Usuário ou senha incorretos");;
+					JOptionPane.showMessageDialog(frame, "Usuï¿½rio ou senha incorretos");;
 				}
 				
 				
