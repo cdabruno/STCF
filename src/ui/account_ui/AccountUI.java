@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import business.account_operations.AccountOperations;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -12,6 +15,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import ui.report_ui.ReportUI;
 import ui.search_ui.*;
 
 public class AccountUI {
@@ -74,11 +79,14 @@ public class AccountUI {
 		JButton btnCreateAccount = new JButton("Cadastrar-se");
 		btnCreateAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(AccountOperations.checkAccount(textName.getText())) {
+				String pass = new String(password.getPassword());
+				if(AccountOperations.checkExistsAccountByUserName(textName.getText())) {
 					JOptionPane.showMessageDialog(frame, "Conta j� existente");
 				} else {
-					if (AccountOperations.checkPassword(password.getPassword())) {
-						AccountOperations.createAccount(textName.getText(), password.getPassword());
+					if (pass.length() == 0) {
+						JOptionPane.showMessageDialog(frame, "Por favor insira um nome");
+					} else if (AccountOperations.checkPassword(pass)) {
+						AccountOperations.register(textName.getText(), pass);
 						JOptionPane.showMessageDialog(frame, "Conta criada");
 					} else {
 						JOptionPane.showMessageDialog(frame, "Senha muito facil");
@@ -96,13 +104,14 @@ public class AccountUI {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String[] loginParameters = {textName.getText(), password.getPassword().toString()};
-				if(AccountOperations.login(loginParameters[0], loginParameters[1])) {
+				String pass = new String(password.getPassword());
+				String[] loginParameters = {textName.getText(), pass};
+				if(AccountOperations.checkExistsAccountByUserNameAndPassword(loginParameters[0], loginParameters[1])) {
 					frame.dispose();
-					if(AccountOperations.isAdmin(loginParameters[0])) {
+					if(AccountOperations.checkIsAdmin(loginParameters[0])) {
 						ReportUI.main(loginParameters);
 					} else {
-						PlayerManagementUI.main(loginParameters);
+						//PlayerManagementUI.main(loginParameters);
 					}			
 					
 				} else { 

@@ -2,7 +2,9 @@ package ui.report_ui;
 
 import database.*;
 import database.player.Player;
+import database.transaction.Transaction;
 import database.user.team.Team;
+import business.admin_operations.AdminOperations;
 import business.search_operations.SearchPlayer;
 
 import java.awt.Container;
@@ -27,6 +29,7 @@ import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.FileWriter;
@@ -43,6 +46,7 @@ public class ReportUI {
 	private JTable table;
 	private JScrollPane scrollPane;
 	private JButton btnGenerateCSV;
+	private DefaultTableModel tableModel;
 
 	/**
 	 * Launch the application.
@@ -86,7 +90,7 @@ public class ReportUI {
 			public void actionPerformed(ActionEvent e) {
 				int userSelection = fileChooser.showSaveDialog(frame);
 				if (userSelection == JFileChooser.APPROVE_OPTION) {
-					String text = ReportOperations.getCSV();
+					String text = AdminOperations.getPlayerTransactionsInformationCSV(AdminOperations.getPlayerTransactionInformationList());
 					File file = fileChooser.getSelectedFile();
 					if (!file.exists()) {
 						String path = file.getAbsolutePath();
@@ -108,8 +112,8 @@ public class ReportUI {
 							}
 						} else {
 							int response = JOptionPane.showOptionDialog(new JFrame(), "Sobrescrever arquivo?",
-									"Arquivo já existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
-									new String[] { "Sim", "Não", }, null);
+									"Arquivo jï¿½ existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+									new String[] { "Sim", "Nï¿½o", }, null);
 							if (response == 0) {
 								try (BufferedWriter bw = new BufferedWriter(
 										new FileWriter(file.getAbsoluteFile(), false))) {
@@ -122,8 +126,8 @@ public class ReportUI {
 						}
 					} else {
 						int response = JOptionPane.showOptionDialog(new JFrame(), "Sobrescrever arquivo?",
-								"Arquivo já existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
-								new String[] { "Sim", "Não", }, null);
+								"Arquivo jï¿½ existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+								new String[] { "Sim", "Nï¿½o", }, null);
 						if (response == 0) {
 							try (BufferedWriter bw = new BufferedWriter(
 									new FileWriter(file.getAbsoluteFile(), false))) {
@@ -142,8 +146,16 @@ public class ReportUI {
 	
 	private void fillTable() {
 		//TODO preencher tabela com dados
-		// receber lista de objetos de transação
+		// receber lista de objetos de transaï¿½ï¿½o
 		// jogador, time origem, time destino, tipo, valor
+		ArrayList<Transaction> transactions = AdminOperations.getPlayerTransactionInformationList();
+		for(Transaction transaction: transactions) {
+			tableModel.addRow(new Object[]{transaction.getPlayer().getName(),
+					transaction.getSourceTeam().getName(),
+					transaction.getDestinationTeam().getName(),
+					transaction.getType().toString(),
+					transaction.getPrice()});
+		}
 	}
 	
 	
@@ -152,11 +164,11 @@ public class ReportUI {
 		frame.setBounds(100, 100, 594, 435);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("Relatório");
+		frame.setTitle("Relatï¿½rio");
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 10, 560, 337);
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tableModel = new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
@@ -169,7 +181,10 @@ public class ReportUI {
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
-		});
+		};
+		
+		table.setModel(tableModel);
+		table.getTableHeader().setReorderingAllowed(false);
 		
 		fillTable();
 		
@@ -182,6 +197,7 @@ public class ReportUI {
 	
 		btnGenerateCSV.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnGenerateCSV.setBounds(222, 357, 135, 32);
+		initSaveText();
 		frame.getContentPane().add(btnGenerateCSV);
 	}
 }

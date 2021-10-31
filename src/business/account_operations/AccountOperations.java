@@ -1,30 +1,20 @@
 package business.account_operations;
 import database.user.*;
 import database.user.admin.Admin;
+
+import java.util.List;
+
 import database.*;
 
 public class AccountOperations {
 
-    public static final int MIN_DIGIT_SIZE = 8;
+    public static final int MIN_SIZE = 8;
 
     public static boolean checkPassword(String password){
-        int countDigits = 0;
-
-        if(!password.matches("[A-Z]") || !password.matches("[^A-Za-z0-9 ]")){
-            return false;
-        }
-        
-        for (int i = 0; i < password.length(); i++){
-            char c = password.charAt(i);        
-            if(Character.isDigit(c)){
-                countDigits++;
-            }
-        }
-
-        if(countDigits >= MIN_DIGIT_SIZE){
+        if(password.matches("[A-Z]") && password.matches("[^A-Za-z0-9 ]") && password.length() >= MIN_SIZE){
             return true;
-        }else{
-            return false;
+        } else {
+        	return false;
         }
     }
 
@@ -38,16 +28,17 @@ public class AccountOperations {
         Data.getHashUsers().put(user.getIdUser(), user);
     }
 
-    public static boolean checkIsAdmin(User user){
-
-        if(user instanceof Admin){
-            return true;
-        }
+    public static boolean checkIsAdmin(String name){
+    	List<User> users = Data.getUsers();
+    	for(User user: users) {
+    		if (user.getName().equalsIgnoreCase(name)) {
+    			return true;
+    		}
+    	}
         return false;
     }
 
     public static boolean checkExistsAccountByUserName(String userName){
-
         for(User user : Data.getUsers()){
             if(userName.equalsIgnoreCase(user.getName())){
                 return true;
