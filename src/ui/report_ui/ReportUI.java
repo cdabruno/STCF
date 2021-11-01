@@ -112,8 +112,8 @@ public class ReportUI {
 							}
 						} else {
 							int response = JOptionPane.showOptionDialog(new JFrame(), "Sobrescrever arquivo?",
-									"Arquivo j� existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
-									new String[] { "Sim", "N�o", }, null);
+									"Arquivo já existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+									new String[] { "Sim", "Não", }, null);
 							if (response == 0) {
 								try (BufferedWriter bw = new BufferedWriter(
 										new FileWriter(file.getAbsoluteFile(), false))) {
@@ -126,7 +126,7 @@ public class ReportUI {
 						}
 					} else {
 						int response = JOptionPane.showOptionDialog(new JFrame(), "Sobrescrever arquivo?",
-								"Arquivo j� existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+								"Arquivo já existe", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
 								new String[] { "Sim", "N�o", }, null);
 						if (response == 0) {
 							try (BufferedWriter bw = new BufferedWriter(
@@ -164,7 +164,7 @@ public class ReportUI {
 		frame.setBounds(100, 100, 594, 435);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("Relat�rio");
+		frame.setTitle("Relatário");
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 10, 560, 337);
 		table = new JTable();

@@ -66,22 +66,22 @@ public class AccountUI {
 		frame.getContentPane().add(textName);
 		textName.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nome");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(77, 76, 62, 30);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblName = new JLabel("Nome");
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblName.setBounds(77, 76, 62, 30);
+		frame.getContentPane().add(lblName);
 		
-		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblSenha.setBounds(77, 147, 56, 30);
-		frame.getContentPane().add(lblSenha);
+		JLabel lblPassword = new JLabel("Senha");
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPassword.setBounds(77, 147, 56, 30);
+		frame.getContentPane().add(lblPassword);
 		
 		JButton btnCreateAccount = new JButton("Cadastrar-se");
 		btnCreateAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String pass = new String(password.getPassword());
 				if(AccountOperations.checkExistsAccountByUserName(textName.getText())) {
-					JOptionPane.showMessageDialog(frame, "Conta j� existente");
+					JOptionPane.showMessageDialog(frame, "Conta já existente");
 				} else {
 					if (pass.length() == 0) {
 						JOptionPane.showMessageDialog(frame, "Por favor insira um nome");
@@ -89,7 +89,7 @@ public class AccountUI {
 						AccountOperations.register(textName.getText(), pass);
 						JOptionPane.showMessageDialog(frame, "Conta criada");
 					} else {
-						JOptionPane.showMessageDialog(frame, "Senha muito facil");
+						JOptionPane.showMessageDialog(frame, "Senha muito fácil");
 					}
 				}
 				
@@ -115,7 +115,7 @@ public class AccountUI {
 					}			
 					
 				} else { 
-					JOptionPane.showMessageDialog(frame, "Usu�rio ou senha incorretos");;
+					JOptionPane.showMessageDialog(frame, "Usuário ou senha incorretos");;
 				}
 				
 				

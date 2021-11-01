@@ -90,30 +90,30 @@ public class SearchUI {
 				}
 			}
 		});
-		textBusca.setBounds(105, 24, 218, 24);
+		textBusca.setBounds(139, 24, 344, 24);
 		frmBusca.getContentPane().add(textBusca);
 		textBusca.setColumns(10);
 
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
+		JButton btnSearch = new JButton("Buscar");
+		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				search();
 
 			}
 		});
-		btnBuscar.setBounds(10, 25, 85, 21);
-		frmBusca.getContentPane().add(btnBuscar);
+		btnSearch.setBounds(20, 25, 95, 21);
+		frmBusca.getContentPane().add(btnSearch);
 
 		JButton btnBuy = new JButton("Comprar");
 		btnBuy.setBounds(42, 390, 85, 21);
 		frmBusca.getContentPane().add(btnBuy);
 
 		JButton btnLoan = new JButton("Pedir Empr\u00E9stimo");
-		btnLoan.setBounds(186, 390, 180, 21);
+		btnLoan.setBounds(286, 390, 180, 21);
 		frmBusca.getContentPane().add(btnLoan);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 65, 436, 295);
+		scrollPane.setBounds(20, 65, 463, 295);
 		frmBusca.getContentPane().add(scrollPane);
 
 		table = new JTable();
