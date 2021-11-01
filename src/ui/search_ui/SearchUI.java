@@ -110,7 +110,7 @@ public class SearchUI {
 			public void actionPerformed(ActionEvent e) {
 				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
 				float currentValue = Float.parseFloat(table.getModel().getValueAt(table.getSelectedRow(), 2).toString());
-				String args[] = {name, playerName, currentValue}
+				String args[] = {name, playerName, Float.toString(currentValue)};
 				AuctionUI.main(args);
 			}
 		});

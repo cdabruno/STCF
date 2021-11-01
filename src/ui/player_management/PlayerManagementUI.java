@@ -64,7 +64,6 @@ public class PlayerManagementUI {
 		JButton btnReturnPlayer = new JButton("Devolver Jogador");
 		btnReturnPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				String tmp[] = {name, password};
 				ReturnPlayerUI.main(tmp);
 			}
@@ -76,7 +75,6 @@ public class PlayerManagementUI {
 		JButton btnAddToList = new JButton("Colocar para transferência");
 		btnAddToList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				String tmp[] = {name, password};
 				AddToListUI.main(tmp);
 			}
@@ -88,7 +86,6 @@ public class PlayerManagementUI {
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				String tmp[] = {};
 				AccountUI.main(tmp);
 			}
@@ -100,7 +97,6 @@ public class PlayerManagementUI {
 		JButton btnSearch = new JButton("Buscar Jogadores");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				String tmp[] = {name, password};
 				SearchUI.main(tmp);
 			}
