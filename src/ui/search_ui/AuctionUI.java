@@ -20,7 +20,7 @@ public class AuctionUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AuctionUI window = new AuctionUI("teste", 123f);
+					AuctionUI window = new AuctionUI(args[0], Float.parseFloat(args[1]));
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,12 +45,12 @@ public class AuctionUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblPlayerName = new JLabel("Jogador");
+		JLabel lblPlayerName = new JLabel(name);
 		lblPlayerName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblPlayerName.setBounds(27, 46, 224, 44);
 		frame.getContentPane().add(lblPlayerName);
 		
-		JLabel lblCurrentValue = new JLabel("Valor atual");
+		JLabel lblCurrentValue = new JLabel(value.toString());
 		lblCurrentValue.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCurrentValue.setBounds(27, 100, 122, 35);
 		frame.getContentPane().add(lblCurrentValue);

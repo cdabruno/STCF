@@ -105,6 +105,12 @@ public class SearchUI {
 		frmBusca.getContentPane().add(btnSearch);
 
 		JButton btnBuy = new JButton("Comprar");
+		btnBuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] teste = {"gladson", "123"};
+				AuctionUI.main(teste);
+			}
+		});
 		btnBuy.setBounds(42, 390, 85, 21);
 		frmBusca.getContentPane().add(btnBuy);
 

@@ -2,6 +2,7 @@ package ui.player_management;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
@@ -11,14 +12,18 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.text.InternationalFormatter;
 import javax.swing.text.NumberFormatter;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFormattedTextField.AbstractFormatter;
+import javax.swing.JFormattedTextField.AbstractFormatterFactory;
 
 public class AddToListUI {
 
 	private JFrame frame;
+	private JTextField textValue;
 
 	/**
 	 * Launch the application.
@@ -79,33 +84,14 @@ public class AddToListUI {
 		lblValue.setBounds(34, 362, 55, 30);
 		frame.getContentPane().add(lblValue);
 		
+		textValue = new JTextField();
+		textValue.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textValue.setBounds(81, 362, 186, 30);
+		frame.getContentPane().add(textValue);
+		textValue.setColumns(10);
 		
 		
-		NumberFormatter formatter = new NumberFormatter(java.text.NumberFormat.getCurrencyInstance());
-	    formatter.setValueClass(Double.class);
-	    formatter.setMinimum(0);
-	    formatter.setMaximum(Double.MAX_VALUE);
-	    formatter.setAllowsInvalid(false);
-	    // If you want the value to be committed on each keystroke instead of focus lost
-	    formatter.setCommitsOnValidEdit(true);
-		JFormattedTextField formattedTextField = new JFormattedTextField(formatter);
-		formattedTextField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		formattedTextField.setBounds(74, 362, 193, 27);
-		frame.getContentPane().add(formattedTextField);
-	}
-}
-
-class ValueFormatter extends NumberFormatter {
-	 ValueFormatter(NumberFormat nf) {
-		 super(nf);
-	 }
-	@Override
-	public Object stringToValue(String text) throws ParseException {
-		// TODO Auto-generated method stub
-		if(text.length() == 0) {
-			return null;
-		} else {
-			return super.stringToValue(text);
-		}
+		
+		
 	}
 }
