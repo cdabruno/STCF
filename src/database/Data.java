@@ -4,12 +4,14 @@ import java.util.*;
 import database.player.*;
 import database.user.team.*;
 import database.user.*;
+import database.user.admin.Admin;
 import database.transaction.*;
 
 public class Data {
     private static Map<Integer, Player> players;
     private static Map<Integer, Team> teams;
     private static Map<Integer, User> users;
+    private static Map<Integer, Admin> admins;
     private static Map<Integer, Transaction> transactions;
 
     static {
@@ -17,7 +19,7 @@ public class Data {
         teams = new HashMap<Integer, Team>();
         transactions = new HashMap<Integer, Transaction>();
         users = new HashMap<Integer, User>();
-
+        admins = new HashMap<Integer, Admin>();
         players.put(01, new Player("Junior Baiano", 01, 01, 1000.00f, false));
         players.put(02, new Player("Leandrao", 02, 02, 2000.00f, true));
         players.put(03, new Player("Jucilei", 03, 03, 3000.00f, false));
@@ -32,8 +34,10 @@ public class Data {
         
         transactions.put(01, new Transaction(players.get(01), teams.get(01), teams.get(02), TransactionType.EMPRESTIMO, 100f));
         
+        
+        admins.put(06, new Admin("Admin", 06, "password"));
         users.put(01, teams.get(01));
-
+        users.put(06, admins.get(06));
     }
 
     public static List<Player> getPlayers() {
@@ -86,6 +90,10 @@ public class Data {
 
     public static void setTransactions(Map<Integer, Transaction> transactions) {
         Data.transactions = transactions;
+    }
+    
+    public static List<Admin> getAdmins() {
+        return new ArrayList<Admin>(admins.values());
     }
 
 }

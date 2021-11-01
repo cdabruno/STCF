@@ -4,6 +4,7 @@ import database.*;
 import database.player.Player;
 import database.transaction.Transaction;
 import database.user.team.Team;
+import ui.account_ui.AccountUI;
 import business.admin_operations.AdminOperations;
 import business.search_operations.SearchPlayer;
 
@@ -47,6 +48,7 @@ public class ReportUI {
 	private JScrollPane scrollPane;
 	private JButton btnGenerateCSV;
 	private DefaultTableModel tableModel;
+	private JButton btnLogout;
 
 	/**
 	 * Launch the application.
@@ -162,7 +164,7 @@ public class ReportUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 594, 435);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Relatário");
 		scrollPane = new JScrollPane();
@@ -199,5 +201,15 @@ public class ReportUI {
 		btnGenerateCSV.setBounds(222, 357, 135, 32);
 		initSaveText();
 		frame.getContentPane().add(btnGenerateCSV);
+		
+		btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String tmp[] = {};
+				AccountUI.main(tmp);
+			}
+		});
+		btnLogout.setBounds(482, 365, 88, 21);
+		frame.getContentPane().add(btnLogout);
 	}
 }

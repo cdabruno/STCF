@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -40,7 +41,7 @@ public class SearchUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchUI window = new SearchUI();
+					SearchUI window = new SearchUI(args[0], args[1]);
 					window.frmBusca.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,8 +53,8 @@ public class SearchUI {
 	/**
 	 * Create the application.
 	 */
-	public SearchUI() {
-		initialize();
+	public SearchUI(String name, String password) {
+		initialize(name, password);
 	}
 
 	/**
@@ -74,11 +75,11 @@ public class SearchUI {
 		}
 	}
 
-	private void initialize() {
+	private void initialize(String name, String password) {
 		frmBusca = new JFrame();
 		frmBusca.setTitle("Busca");
 		frmBusca.setBounds(100, 100, 545, 472);
-		frmBusca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBusca.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmBusca.getContentPane().setLayout(null);
 
 		textBusca = new JTextField();
@@ -107,14 +108,30 @@ public class SearchUI {
 		JButton btnBuy = new JButton("Comprar");
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String [] teste = {"gladson", "123"};
-				AuctionUI.main(teste);
+				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
+				float currentValue = Float.parseFloat(table.getModel().getValueAt(table.getSelectedRow(), 2).toString());
+				String args[] = {name, playerName, currentValue}
+				AuctionUI.main(args);
 			}
 		});
 		btnBuy.setBounds(42, 390, 85, 21);
 		frmBusca.getContentPane().add(btnBuy);
 
-		JButton btnLoan = new JButton("Pedir Empr\u00E9stimo");
+		JButton btnLoan = new JButton("Pedir Empréstimo");
+		btnLoan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
+				if(TeamOperations.playerAcceptsLoan()) {
+					TeamOperations.loadPlayer(name, playerName);
+					JOptionPane.showMessageDialog(frmBusca, "Empréstimo bem sucedido!");
+					search();
+				} else {
+					//JOptionPane.showMessageDialog(frmBusca, "Entendo" + name + "mas rodou igual");
+					JOptionPane.showMessageDialog(frmBusca, "Empréstimo falhou");
+				}
+			}
+		});
 		btnLoan.setBounds(286, 390, 180, 21);
 		frmBusca.getContentPane().add(btnLoan);
 

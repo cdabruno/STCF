@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 
 import ui.report_ui.ReportUI;
 import ui.search_ui.*;
+import ui.player_management.*;
 
 public class AccountUI {
 
@@ -53,6 +54,7 @@ public class AccountUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 594, 435);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -106,16 +108,17 @@ public class AccountUI {
 			public void actionPerformed(ActionEvent e) {
 				String pass = new String(password.getPassword());
 				String[] loginParameters = {textName.getText(), pass};
-				if(AccountOperations.checkExistsAccountByUserNameAndPassword(loginParameters[0], loginParameters[1])) {
+				if(AccountOperations.checkExistsAccountByUserNameAndPassword(loginParameters[0], pass)) {
 					frame.dispose();
 					if(AccountOperations.checkIsAdmin(loginParameters[0])) {
 						ReportUI.main(loginParameters);
 					} else {
-						//PlayerManagementUI.main(loginParameters);
+						PlayerManagementUI.main(loginParameters);
+						
 					}			
 					
 				} else { 
-					JOptionPane.showMessageDialog(frame, "Usuário ou senha incorretos");;
+					JOptionPane.showMessageDialog(frame, "Usuário ou senha incorretos");
 				}
 				
 				
