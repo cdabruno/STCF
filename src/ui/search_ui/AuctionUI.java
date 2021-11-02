@@ -9,7 +9,10 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.SwingWorker;
+
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 
@@ -103,6 +106,33 @@ public class AuctionUI {
 		lblNewValue.setLabelFor(textValue);
 		lblNewValue.setBounds(27, 197, 169, 35);
 		frame.getContentPane().add(lblNewValue);
+		
+		SwingWorker worker = new SwingWorker() {
+			@Override
+			protected Void doInBackground() throws Exception {
+				long ONE_MINUTE_IN_MILLIS=60000;
+				long t= currentDate.getTime();
+				Date endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
+				while(new Date().before(endDate)) {
+					t= currentDate.getTime();
+					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
+				}
+				
+				
+				if(TeamOperations.getLastBidTeam(playerName).equals(name)) {
+					JOptionPane.showMessageDialog(frame, "Você Venceu o leilão");
+				} else {
+					JOptionPane.showMessageDialog(frame, "Leilão acabou. Outro Time adquiriu o jogador.");
+				}
+				
+				TeamOperations.endAuction(playerName);
+				frame.dispose();
+
+			    return null;
+			}
+		};
+
+		worker.execute();
 	}
 
 }
