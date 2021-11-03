@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import business.team_operations.*;
+
 public class AddPlayerUI {
 
 	private JFrame frmAdicionarJogador;

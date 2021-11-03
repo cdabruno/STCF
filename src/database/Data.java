@@ -26,11 +26,11 @@ public class Data {
         players.put(04, new Player("Jobson", 04, 04, 4000.00f, true));
         players.put(05, new Player("Gladstone", 05, 05, 5000.00f, true));
 
-        teams.put(01, new Team("Central", 01, "12345678A@"));
-        teams.put(02, new Team("Boavista", 02, "12345678B@"));
-        teams.put(03, new Team("Sport", 03, "12345678C@"));
-        teams.put(04, new Team("Betim", 04, "12345678D@"));
-        teams.put(05, new Team("Gremio", 05, "12345678E@"));
+        teams.put(01, new Team("Central", 01, "12345678A@", (HashMap<Integer, Player>) players));
+        teams.put(02, new Team("Boavista", 02, "12345678B@", (HashMap<Integer, Player>) players));
+        teams.put(03, new Team("Sport", 03, "12345678C@", (HashMap<Integer, Player>) players));
+        teams.put(04, new Team("Betim", 04, "12345678D@", (HashMap<Integer, Player>) players));
+        teams.put(05, new Team("Gremio", 05, "12345678E@", (HashMap<Integer, Player>) players));
         
         transactions.put(01, new Transaction(players.get(01), teams.get(01), teams.get(02), TransactionType.EMPRESTIMO, 100f));
         
@@ -60,8 +60,27 @@ public class Data {
         return teams.get(id);
     }
 
+    public static Team getTeamByName(String teamName){
+
+        for (Team team : getTeams()) {
+            if (team.getName().equals(teamName)){
+                return team;
+            }
+        }
+        return null;
+    }
+
     public static Player getPlayerById(int id) {
         return players.get(id);
+    }
+
+    public static Player getPlayerByName(String playerName) {
+        for (Player player : getPlayers()){
+            if (player.getName().equals(playerName)){
+                return player;
+            }
+        }
+        return null;
     }
     
     public static User getUserById(int id) {
@@ -84,8 +103,8 @@ public class Data {
         Data.users = users;
     }
 
-    public static ArrayList<Transaction> getTransactions() {
-    	return new ArrayList<Transaction>(transactions.values());
+    public static Map<Integer, Transaction> getTransactions() {
+    	return transactions;
     }
 
     public static void setTransactions(Map<Integer, Transaction> transactions) {
