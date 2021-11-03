@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -40,7 +41,7 @@ public class SearchUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchUI window = new SearchUI();
+					SearchUI window = new SearchUI(args[0], args[1]);
 					window.frmBusca.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,8 +53,8 @@ public class SearchUI {
 	/**
 	 * Create the application.
 	 */
-	public SearchUI() {
-		initialize();
+	public SearchUI(String name, String password) {
+		initialize(name, password);
 	}
 
 	/**
@@ -74,11 +75,11 @@ public class SearchUI {
 		}
 	}
 
-	private void initialize() {
+	private void initialize(String name, String password) {
 		frmBusca = new JFrame();
 		frmBusca.setTitle("Busca");
 		frmBusca.setBounds(100, 100, 545, 472);
-		frmBusca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBusca.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmBusca.getContentPane().setLayout(null);
 
 		textBusca = new JTextField();
@@ -90,30 +91,52 @@ public class SearchUI {
 				}
 			}
 		});
-		textBusca.setBounds(105, 24, 218, 24);
+		textBusca.setBounds(139, 24, 344, 24);
 		frmBusca.getContentPane().add(textBusca);
 		textBusca.setColumns(10);
 
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
+		JButton btnSearch = new JButton("Buscar");
+		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				search();
 
 			}
 		});
-		btnBuscar.setBounds(10, 25, 85, 21);
-		frmBusca.getContentPane().add(btnBuscar);
+		btnSearch.setBounds(20, 25, 95, 21);
+		frmBusca.getContentPane().add(btnSearch);
 
-		JButton btnNewButton = new JButton("Comprar");
-		btnNewButton.setBounds(42, 390, 85, 21);
-		frmBusca.getContentPane().add(btnNewButton);
+		JButton btnBuy = new JButton("Comprar");
+		btnBuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
+				float currentValue = Float.parseFloat(table.getModel().getValueAt(table.getSelectedRow(), 2).toString());
+				String args[] = {name, playerName, Float.toString(currentValue)};
+				AuctionUI.main(args);
+			}
+		});
+		btnBuy.setBounds(42, 390, 85, 21);
+		frmBusca.getContentPane().add(btnBuy);
 
-		JButton btnNewButton_1 = new JButton("Pedir Empr\u00E9stimo");
-		btnNewButton_1.setBounds(186, 390, 180, 21);
-		frmBusca.getContentPane().add(btnNewButton_1);
+		JButton btnLoan = new JButton("Pedir Empréstimo");
+		btnLoan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
+				if(TeamOperations.playerAcceptsLoan()) {
+					TeamOperations.loadPlayer(name, playerName);
+					JOptionPane.showMessageDialog(frmBusca, "Empréstimo bem sucedido!");
+					search();
+				} else {
+					//JOptionPane.showMessageDialog(frmBusca, "Entendo" + name + "mas rodou igual");
+					JOptionPane.showMessageDialog(frmBusca, "Empréstimo falhou");
+				}
+			}
+		});
+		btnLoan.setBounds(286, 390, 180, 21);
+		frmBusca.getContentPane().add(btnLoan);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 65, 436, 295);
+		scrollPane.setBounds(20, 65, 463, 295);
 		frmBusca.getContentPane().add(scrollPane);
 
 		table = new JTable();

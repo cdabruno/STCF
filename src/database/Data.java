@@ -4,19 +4,22 @@ import java.util.*;
 import database.player.*;
 import database.user.team.*;
 import database.user.*;
+import database.user.admin.Admin;
 import database.transaction.*;
 
 public class Data {
     private static Map<Integer, Player> players;
     private static Map<Integer, Team> teams;
     private static Map<Integer, User> users;
+    private static Map<Integer, Admin> admins;
     private static Map<Integer, Transaction> transactions;
 
     static {
         players = new HashMap<Integer, Player>();
         teams = new HashMap<Integer, Team>();
         transactions = new HashMap<Integer, Transaction>();
-
+        users = new HashMap<Integer, User>();
+        admins = new HashMap<Integer, Admin>();
         players.put(01, new Player("Junior Baiano", 01, 01, 1000.00f, false));
         players.put(02, new Player("Leandrao", 02, 02, 2000.00f, true));
         players.put(03, new Player("Jucilei", 03, 03, 3000.00f, false));
@@ -28,7 +31,13 @@ public class Data {
         teams.put(03, new Team("Sport", 03, "12345678C@"));
         teams.put(04, new Team("Betim", 04, "12345678D@"));
         teams.put(05, new Team("Gremio", 05, "12345678E@"));
-
+        
+        transactions.put(01, new Transaction(players.get(01), teams.get(01), teams.get(02), TransactionType.EMPRESTIMO, 100f));
+        
+        
+        admins.put(06, new Admin("Admin", 06, "password"));
+        users.put(01, teams.get(01));
+        users.put(06, admins.get(06));
     }
 
     public static List<Player> getPlayers() {
@@ -54,6 +63,10 @@ public class Data {
     public static Player getPlayerById(int id) {
         return players.get(id);
     }
+    
+    public static User getUserById(int id) {
+        return users.get(id);
+    }
 
     public static List<User> getUsers(){
         return new ArrayList<User>(users.values());
@@ -71,12 +84,16 @@ public class Data {
         Data.users = users;
     }
 
-    public static Map<Integer, Transaction> getTransactions() {
-        return transactions;
+    public static ArrayList<Transaction> getTransactions() {
+    	return new ArrayList<Transaction>(transactions.values());
     }
 
     public static void setTransactions(Map<Integer, Transaction> transactions) {
         Data.transactions = transactions;
+    }
+    
+    public static List<Admin> getAdmins() {
+        return new ArrayList<Admin>(admins.values());
     }
 
 }
