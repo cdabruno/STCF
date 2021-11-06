@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SwingWorker;
 
+import business.team_operations.TeamOperations;
+
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
@@ -53,6 +55,7 @@ public class AuctionUI {
 		frame.setBounds(100, 100, 294, 437);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("Leilão");
 		
 		JLabel lblPlayerName = new JLabel(name);
 		lblPlayerName.setFont(new Font("Tahoma", Font.PLAIN, 15));

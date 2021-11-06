@@ -103,8 +103,12 @@ public class Data {
         Data.users = users;
     }
 
-    public static Map<Integer, Transaction> getTransactions() {
-    	return transactions;
+    public static ArrayList<Transaction> getTransactions() {
+    	return new ArrayList<Transaction>(transactions.values());
+    }
+    
+    public static Map<Integer, Transaction> getHashTransactions() {
+        return transactions;
     }
 
     public static void setTransactions(Map<Integer, Transaction> transactions) {

@@ -4,6 +4,8 @@ import database.*;
 import database.player.Player;
 import database.user.team.Team;
 import business.search_operations.SearchPlayer;
+import business.team_operations.TeamOperations;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -122,8 +124,8 @@ public class SearchUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
-				if(TeamOperations.playerAcceptsLoan()) {
-					TeamOperations.loadPlayer(name, playerName);
+				if(TeamOperations.playerAcceptsLoan(playerName)) {
+					TeamOperations.loanPlayer(name, playerName);
 					JOptionPane.showMessageDialog(frmBusca, "Empréstimo bem sucedido!");
 					search();
 				} else {

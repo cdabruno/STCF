@@ -62,8 +62,8 @@ public class AddToListUI {
 	private void getPlayersNotOnList(String name) {
 		ArrayList<Player> notListed = TeamOperations.getPlayersNotOnList(name);
 		model.removeAllElements();
-		for ( int i = 0; i < notListed.length; i++ ) {
-			  model.addElement( notListed[i].getName() );
+		for ( int i = 0; i < notListed.size(); i++ ) {
+			  model.addElement( notListed.get(i).getName() );
 		}
 	}
 	
@@ -75,6 +75,7 @@ public class AddToListUI {
 		frame.setBounds(100, 100, 315, 488);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("Colocar na Lista");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(34, 24, 233, 328);
@@ -85,7 +86,7 @@ public class AddToListUI {
 
 		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Nome"};
+			String[] values = new String[] {"Junior Baiano"};
 			public int getSize() {
 				return values.length;
 			}

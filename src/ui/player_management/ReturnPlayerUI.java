@@ -8,11 +8,16 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
+
+import business.team_operations.TeamOperations;
+import database.player.Player;
+
 import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class ReturnPlayerUI {
@@ -47,8 +52,8 @@ public class ReturnPlayerUI {
 	private void getBorrowedPlayers(String name) {
 		ArrayList<Player> borrowed = TeamOperations.getBorrowedPlayers(name);
 		model.removeAllElements();
-		for ( int i = 0; i < borrowed.length; i++ ) {
-			  model.addElement( borrowed[i].getName() );
+		for ( int i = 0; i < borrowed.size(); i++ ) {
+			  model.addElement( borrowed.get(i).getName() );
 		}
 	}
 	
@@ -73,7 +78,7 @@ public class ReturnPlayerUI {
 
 		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Nome"};
+			String[] values = new String[] {""};
 			public int getSize() {
 				return values.length;
 			}

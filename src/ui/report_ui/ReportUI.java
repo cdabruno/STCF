@@ -166,7 +166,7 @@ public class ReportUI {
 		frame.setBounds(100, 100, 594, 435);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("Relatário");
+		frame.setTitle("Relatório");
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 10, 560, 337);
 		table = new JTable();
@@ -205,6 +205,7 @@ public class ReportUI {
 		btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				String tmp[] = {};
 				AccountUI.main(tmp);
 			}

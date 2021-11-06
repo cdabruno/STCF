@@ -88,17 +88,17 @@ public class TeamOperations {
     }
 
     // Efetiva o emprestimo de um jogador para um time
-    public static void loanPlayer(String teamName, String playerName, float price){
+    public static void loanPlayer(String teamName, String playerName){
         
         Player player = Data.getPlayerByName(playerName);
         Team sourceTeam = Data.getTeamById(player.getIdTeam());
         Team destinationTeam = Data.getTeamByName(teamName);
-        Transaction transaction = new Transaction(player, sourceTeam, destinationTeam, TransactionType.EMPRESTIMO, price);
+        Transaction transaction = new Transaction(player, sourceTeam, destinationTeam, TransactionType.EMPRESTIMO, 0);
         
         destinationTeam.addPlayer(player);
         sourceTeam.removePlayer(player);
         
-        Data.getTransactions().put(Data.getTransactions().size()+1, transaction);
+        Data.getHashTransactions().put(Data.getTransactions().size()+1, transaction);
     
     }
 
@@ -144,7 +144,7 @@ public class TeamOperations {
         Transaction transaction = new Transaction(player, oldTeam, biddingTeam, TransactionType.COMPRA, player.getCurrentValue());
         biddingTeam.addPlayer(player);
         oldTeam.removePlayer(player);
-        Data.getTransactions().put(Data.getTransactions().size()+1, transaction);
+        Data.getHashTransactions().put(Data.getTransactions().size()+1, transaction);
         player.setIdTeam(biddingTeam.getIdUser());
         
         ArrayList<Bid> bids = new ArrayList<Bid>();
