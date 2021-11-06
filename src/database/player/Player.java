@@ -1,4 +1,6 @@
 package database.player;
+import database.bid.*;
+import java.util.ArrayList;
 
 public class Player {
 
@@ -7,6 +9,7 @@ public class Player {
   private int idTeam;
   private float currentValue;
   private boolean onSale;
+  private ArrayList<Bid> bids;
 
   public Player(String name, int id, int idTeam, float currentValue, boolean onSale) {
     this.name = name;
@@ -14,6 +17,7 @@ public class Player {
     this.idTeam = idTeam;
     this.currentValue = currentValue;
     this.onSale = onSale;
+    this.bids = new ArrayList<Bid>();
   }
 
   public String getName() {
@@ -54,6 +58,14 @@ public class Player {
 
   public void setOnSale(boolean onSale) {
     this.onSale = onSale;
+  }
+
+  public ArrayList<Bid> getBids() {
+    return this.bids;
+  }
+
+  public void setBids(ArrayList<Bid> bids) {
+    this.bids = bids;
   }
 
 }

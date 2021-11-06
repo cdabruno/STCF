@@ -2,6 +2,8 @@ package business.team_operations;
 import database.player.*;
 import database.user.team.*;
 import database.Data;
+import database.bid.Bid;
+
 import java.util.*;
 import database.transaction.*;
 
@@ -58,7 +60,7 @@ public class TeamOperations {
         Player player = Data.getPlayerByName(playerName);
         player.setOnSale(true);
         player.setCurrentValue(value);
-
+        player.getBids().add(new Bid(null, value));
     }
 
     // Verifica se um jogador já existe no time com um determinado nome
@@ -98,6 +100,59 @@ public class TeamOperations {
         
         Data.getTransactions().put(Data.getTransactions().size()+1, transaction);
     
+    }
+
+    // Novo bid  de um time em um jogador com um valor
+    public static void newBid(String teamName, String playerName, float newValue){
+        Player player = Data.getPlayerByName(playerName);
+        Team team = Data.getTeamByName(teamName);
+
+        Bid bid = new Bid(team, newValue);
+
+        player.getBids().add(bid);
+        player.setCurrentValue(newValue);
+    }
+
+    // Cancela todos bids de um time em um jogador
+    public static void cancelBids(String teamName, String playerName){
+        Player player = Data.getPlayerByName(playerName);
+        
+        ArrayList<Bid> foundBids = new ArrayList<Bid>();
+        for(Bid bid : player.getBids()){
+            if(bid.getBiddingTeam().getName().equals(teamName)){
+                foundBids.add(bid);
+            }
+        }
+        player.getBids().removeAll(foundBids);
+        player.setCurrentValue(player.getBids().get(player.getBids().size() - 1).getBiddingValue());
+    }
+
+    // Retorna o nome do time que deu o ultimo bid (bid mais alto) ao player.
+    public static String getLastBidTeam(String playerName){
+        Player player = Data.getPlayerByName(playerName);
+
+        return player.getBids().get(player.getBids().size()-1).getBiddingTeam().getName();
+    }
+
+    // Encerra o leilão do player, realizando a transferencia.
+    public static void endAuction(String playerName){
+        Player player = Data.getPlayerByName(playerName);
+
+        String biddingTeamName = getLastBidTeam(player.getName());
+        Team biddingTeam = Data.getTeamByName(biddingTeamName);
+        Team oldTeam = Data.getTeamById(player.getIdTeam());
+        Transaction transaction = new Transaction(player, oldTeam, biddingTeam, TransactionType.COMPRA, player.getCurrentValue());
+        biddingTeam.addPlayer(player);
+        oldTeam.removePlayer(player);
+        Data.getTransactions().put(Data.getTransactions().size()+1, transaction);
+        player.setIdTeam(biddingTeam.getIdUser());
+        
+        ArrayList<Bid> bids = new ArrayList<Bid>();
+
+        player.setBids(bids);
+
+        player.setOnSale(false);
+
     }
 
 }
