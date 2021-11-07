@@ -7,6 +7,7 @@ public class Player {
   private String name;
   private int id;
   private int idTeam;
+  private int idOriginalTeam;
   private float currentValue;
   private boolean onSale;
   private ArrayList<Bid> bids;
@@ -15,6 +16,7 @@ public class Player {
     this.name = name;
     this.id = id;
     this.idTeam = idTeam;
+    this.idOriginalTeam = idTeam;
     this.currentValue = currentValue;
     this.onSale = onSale;
     this.bids = new ArrayList<Bid>();
@@ -66,6 +68,14 @@ public class Player {
 
   public void setBids(ArrayList<Bid> bids) {
     this.bids = bids;
+  }
+
+  public int getIdOriginalTeam() {
+	return idOriginalTeam;
+  }
+  
+  public void setIdOriginalTeam(int idOriginalTeam) {
+		this.idOriginalTeam = idOriginalTeam;
   }
 
 }

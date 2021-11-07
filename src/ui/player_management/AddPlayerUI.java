@@ -73,7 +73,7 @@ public class AddPlayerUI {
 			public void actionPerformed(ActionEvent e) {
 				String playerName = textPlayerName.getText();
 				if(TeamOperations.playerExists(name, playerName)) {
-					JOptionPane.showMessageDialog(frmAdicionarJogador, "Jogador com o mesmo nome no time!");
+					JOptionPane.showMessageDialog(frmAdicionarJogador, "Já existe jogador com esse nome!");
 				} else {
 					TeamOperations.addPlayer(name, playerName);
 					JOptionPane.showMessageDialog(frmAdicionarJogador, "Jogador adicionado com sucesso!");

@@ -8,6 +8,10 @@ import database.player.*;
 import database.user.team.*;
 
 public class SearchPlayer {
+	
+	public static void main(String [] args) {
+		System.out.println(search("").values());
+	}
 
     public static Map<Player, Team> search(String searchString) {
         List<Player> allPlayers = Data.getPlayers();

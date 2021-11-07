@@ -113,7 +113,13 @@ public class SearchUI {
 				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
 				float currentValue = Float.parseFloat(table.getModel().getValueAt(table.getSelectedRow(), 2).toString());
 				String args[] = {name, playerName, Float.toString(currentValue)};
-				AuctionUI.main(args);
+				
+				if (!TeamOperations.playerOnSale(playerName)) {
+					JOptionPane.showMessageDialog(frmBusca, "Jogador não está mais na lista!");
+					search();
+				} else {
+					AuctionUI.main(args);
+				}
 			}
 		});
 		btnBuy.setBounds(42, 390, 85, 21);
@@ -124,7 +130,10 @@ public class SearchUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
-				if(TeamOperations.playerAcceptsLoan(playerName)) {
+				if (!TeamOperations.playerOnSale(playerName)) {
+					JOptionPane.showMessageDialog(frmBusca, "Jogador não está mais na lista!");
+					search();
+				} else if(TeamOperations.playerAcceptsLoan(playerName)) {
 					TeamOperations.loanPlayer(name, playerName);
 					JOptionPane.showMessageDialog(frmBusca, "Empréstimo bem sucedido!");
 					search();

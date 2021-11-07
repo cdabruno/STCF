@@ -88,6 +88,7 @@ public class PlayerManagementUI {
 			public void actionPerformed(ActionEvent e) {
 				String tmp[] = {};
 				AccountUI.main(tmp);
+				frame.dispose();
 			}
 		});
 		btnLogout.setFont(new Font("Tahoma", Font.PLAIN, 15));

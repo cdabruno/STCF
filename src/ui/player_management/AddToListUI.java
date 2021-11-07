@@ -85,15 +85,16 @@ public class AddToListUI {
 		list = new JList<>( model );
 
 		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		/*
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Junior Baiano"};
+			String[] values = new String[] {"DALESON"};
 			public int getSize() {
-				return values.length;
+				return values.size;
 			}
 			public Object getElementAt(int index) {
 				return values[index];
 			}
-		});
+		});*/
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(list);
 		
@@ -106,7 +107,7 @@ public class AddToListUI {
 					TeamOperations.putOnList(name, playerName, value);
 					JOptionPane.showMessageDialog(frame, "Jogador adicionado à lista de transferência com sucesso!");
 					getPlayersNotOnList(name);
-				} catch(Exception exc){
+				} catch(NumberFormatException exc){
 					JOptionPane.showMessageDialog(frame, "Deve ser um valor numérico");
 				}
 			}
@@ -125,7 +126,7 @@ public class AddToListUI {
 		frame.getContentPane().add(textValue);
 		textValue.setColumns(10);
 		
-		
+		getPlayersNotOnList(name);
 		
 		
 	}

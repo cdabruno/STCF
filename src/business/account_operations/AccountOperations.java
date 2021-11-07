@@ -42,7 +42,7 @@ public class AccountOperations {
     public static boolean checkIsAdmin(String name){
     	List<Admin> admins = Data.getAdmins();
     	for(Admin admin: admins) {
-    		if (admin.getName().equalsIgnoreCase(name)) {
+    		if (admin.getName().equals(name)) {
     			return true;
     		}
     	}
@@ -51,7 +51,7 @@ public class AccountOperations {
 
     public static boolean checkExistsAccountByUserName(String userName){
         for(User user : Data.getUsers()){
-            if(userName.equalsIgnoreCase(user.getName())){
+            if(userName.equals(user.getName())){
                 return true;
             }
         }
@@ -61,7 +61,7 @@ public class AccountOperations {
     public static boolean checkExistsAccountByUserNameAndPassword(String userName, String password){
 
         for(User user : Data.getUsers()){
-            if(userName.equalsIgnoreCase(user.getName()) && password.equalsIgnoreCase(user.getPassword())){
+            if(userName.equals(user.getName()) && password.equals(user.getPassword())){
                 return true;
             }
         }

@@ -94,9 +94,6 @@ public class AccountUI {
 						JOptionPane.showMessageDialog(frame, "Senha muito fácil");
 					}
 				}
-				
-				
-				
 			}
 		});
 		btnCreateAccount.setFont(new Font("Tahoma", Font.PLAIN, 15));

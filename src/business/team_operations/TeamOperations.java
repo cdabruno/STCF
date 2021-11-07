@@ -12,6 +12,7 @@ public class TeamOperations {
     public static void main(String[] args) {
 
         System.out.println(getBorrowedPlayers("Central"));
+        System.out.println(getPlayersNotOnList("Central"));
 
     }
 
@@ -22,7 +23,7 @@ public class TeamOperations {
         ArrayList<Player> borrowedPlayers = new ArrayList<Player>();
         Team team = Data.getTeamByName(teamName);
         for (Player player : team.getPlayers().values()){
-            if (player.getIdTeam() != team.getIdUser()){
+            if (player.getIdOriginalTeam() != team.getIdUser()){
                 borrowedPlayers.add(player);
             }
         }
@@ -36,7 +37,7 @@ public class TeamOperations {
         Team team = Data.getTeamByName(teamName);
         Player player = Data.getPlayerByName(playerName);
         team.removePlayer(player);
-        Data.getTeamById(player.getIdTeam()).addPlayer(player);;
+        Data.getTeamById(player.getIdOriginalTeam()).addPlayer(player);;
     }
 
     // Retorna os jogadores de um time que não estão na lista de transferencias
@@ -47,7 +48,7 @@ public class TeamOperations {
         Team team = Data.getTeamByName(teamName);
 
         for (Player player : team.getPlayers().values()){
-            if (player.getOnSale()){
+            if (!player.getOnSale() && player.getIdOriginalTeam() == team.getIdUser()){
                 playersNotOnList.add(player);
             }
         }
@@ -63,22 +64,15 @@ public class TeamOperations {
         player.getBids().add(new Bid(null, value));
     }
 
-    // Verifica se um jogador já existe no time com um determinado nome
+    // Verifica se um jogador com um determinado nome já existe
     public static boolean playerExists(String teamName, String playerName){
-        Team team = Data.getTeamByName(teamName);
-        
-        for (Player player : team.getPlayers().values()){
-            if (player.getName().equals(playerName)){
-                return true;
-            }
-        }
-        return false;
+    	return Data.getPlayerByName(playerName) != null;
     }
 
     // Adiciona um jogador em um time
     public static void addPlayer(String teamName, String playerName){
         Team team = Data.getTeamByName(teamName);
-        Player player = Data.getPlayerByName(playerName);
+        Player player = new Player(playerName, Data.getPlayers().size() + 1, team.getIdUser(), 0, false);
         team.addPlayer(player);
     }
 
@@ -91,12 +85,18 @@ public class TeamOperations {
     public static void loanPlayer(String teamName, String playerName){
         
         Player player = Data.getPlayerByName(playerName);
-        Team sourceTeam = Data.getTeamById(player.getIdTeam());
+        Team sourceTeam = Data.getTeamById(player.getIdOriginalTeam());
         Team destinationTeam = Data.getTeamByName(teamName);
         Transaction transaction = new Transaction(player, sourceTeam, destinationTeam, TransactionType.EMPRESTIMO, 0);
         
         destinationTeam.addPlayer(player);
         sourceTeam.removePlayer(player);
+        
+        player.setIdOriginalTeam(sourceTeam.getIdUser());
+        player.setIdTeam(destinationTeam.getIdUser());
+        player.setCurrentValue(0);
+        player.setOnSale(false);
+        player.getBids().clear();
         
         Data.getHashTransactions().put(Data.getTransactions().size()+1, transaction);
     
@@ -119,8 +119,8 @@ public class TeamOperations {
         
         ArrayList<Bid> foundBids = new ArrayList<Bid>();
         for(Bid bid : player.getBids()){
-            if(bid.getBiddingTeam().getName().equals(teamName)){
-                foundBids.add(bid);
+            if(bid.getBiddingTeam() != null && bid.getBiddingTeam().getName().equals(teamName)){
+                foundBids.add(bid); 
             }
         }
         player.getBids().removeAll(foundBids);
@@ -140,19 +140,24 @@ public class TeamOperations {
 
         String biddingTeamName = getLastBidTeam(player.getName());
         Team biddingTeam = Data.getTeamByName(biddingTeamName);
-        Team oldTeam = Data.getTeamById(player.getIdTeam());
+        Team oldTeam = Data.getTeamById(player.getIdOriginalTeam());
         Transaction transaction = new Transaction(player, oldTeam, biddingTeam, TransactionType.COMPRA, player.getCurrentValue());
         biddingTeam.addPlayer(player);
         oldTeam.removePlayer(player);
         Data.getHashTransactions().put(Data.getTransactions().size()+1, transaction);
-        player.setIdTeam(biddingTeam.getIdUser());
         
-        ArrayList<Bid> bids = new ArrayList<Bid>();
-
-        player.setBids(bids);
-
+        
+        player.setIdOriginalTeam(biddingTeam.getIdUser());
+        player.setIdTeam(biddingTeam.getIdUser());
+        player.setCurrentValue(0);
         player.setOnSale(false);
+        player.getBids().clear();
 
     }
+
+
+	public static boolean playerOnSale(String playerName) {
+		return Data.getPlayerByName(playerName).getOnSale();
+	}
 
 }

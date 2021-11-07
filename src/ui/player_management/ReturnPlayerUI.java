@@ -77,6 +77,7 @@ public class ReturnPlayerUI {
 		list = new JList<>( model );
 
 		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		/*
 		list.setModel(new AbstractListModel() {
 			String[] values = new String[] {""};
 			public int getSize() {
@@ -85,7 +86,7 @@ public class ReturnPlayerUI {
 			public Object getElementAt(int index) {
 				return values[index];
 			}
-		});
+		});*/
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(list);
 		getBorrowedPlayers(name);
@@ -100,5 +101,6 @@ public class ReturnPlayerUI {
 		});
 		btnReturn.setBounds(34, 375, 233, 39);
 		frmDevolverJogador.getContentPane().add(btnReturn);
+		getBorrowedPlayers(name);
 	}
 }

@@ -14,6 +14,9 @@ import javax.swing.SwingWorker;
 import business.team_operations.TeamOperations;
 
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
@@ -57,7 +60,7 @@ public class AuctionUI {
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Leilão");
 		
-		JLabel lblPlayerName = new JLabel(name);
+		JLabel lblPlayerName = new JLabel(playerName);
 		lblPlayerName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblPlayerName.setBounds(27, 46, 224, 44);
 		frame.getContentPane().add(lblPlayerName);
@@ -67,12 +70,13 @@ public class AuctionUI {
 		lblCurrentValue.setBounds(27, 100, 122, 35);
 		frame.getContentPane().add(lblCurrentValue);
 		
+		
 		JButton btnNewBid = new JButton("Novo Lance");
 		btnNewBid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					float newValue = Float.parseFloat(textValue.getText());
-					if(newValue < value*1.05) {
+					if(newValue <= value*1.05) {
 						JOptionPane.showMessageDialog(frame, "Valor não é 5% maior que valor atual");
 					} else {
 						TeamOperations.newBid(name, playerName, newValue);
@@ -110,15 +114,17 @@ public class AuctionUI {
 		lblNewValue.setBounds(27, 197, 169, 35);
 		frame.getContentPane().add(lblNewValue);
 		
+		currentDate = new Date();
+		
 		SwingWorker worker = new SwingWorker() {
 			@Override
 			protected Void doInBackground() throws Exception {
 				long ONE_MINUTE_IN_MILLIS=60000;
 				long t= currentDate.getTime();
-				Date endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
+				Date endDate=new Date(t + (ONE_MINUTE_IN_MILLIS)/6);
 				while(new Date().before(endDate)) {
 					t= currentDate.getTime();
-					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
+					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS)/6);
 				}
 				
 				
@@ -134,8 +140,20 @@ public class AuctionUI {
 			    return null;
 			}
 		};
-
+		
+		WindowListener exitListener = new WindowAdapter() {
+		    @Override
+		    public void windowClosing(WindowEvent e) {
+		    	TeamOperations.cancelBids(name, playerName);
+				frame.dispose();
+		    }
+		};
+		frame.addWindowListener(exitListener);
+		
+		
 		worker.execute();
+		
+		TeamOperations.newBid(name, playerName, value);
 	}
 
 }
