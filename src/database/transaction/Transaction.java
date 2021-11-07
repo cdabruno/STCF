@@ -33,7 +33,7 @@ public class Transaction {
     public Team getDestinationTeam() {
         return destinationTeam;
     }
-    public void setDestination(Team destinationTeam) {
+    public void setDestinationTeam(Team destinationTeam) {
         this.destinationTeam = destinationTeam;
     }
     public TransactionType getType() {

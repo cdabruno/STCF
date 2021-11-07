@@ -19,6 +19,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 
 public class AuctionUI {
@@ -123,6 +124,7 @@ public class AuctionUI {
 				long t= currentDate.getTime();
 				Date endDate=new Date(t + (ONE_MINUTE_IN_MILLIS)/6);
 				while(new Date().before(endDate)) {
+					lblPlayerName.setText(playerName +" "+ TimeUnit.MILLISECONDS.toSeconds(endDate.getTime() - new Date().getTime()) + "s");
 					t= currentDate.getTime();
 					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS)/6);
 				}
