@@ -39,6 +39,28 @@ public class PlayerManagementUI {
 		initialize(name, password);
 	}
 
+
+	private void openAddPlayerUI(String[] args) {
+		AddPlayerUI.main(args);
+	}
+
+	private void openReturnPlayerUI(String[] args) {
+		ReturnPlayerUI.main(args);
+	}
+
+	private void openAddToListUI(String[] args) {
+		AddToListUI.main(args);
+	}
+
+	private void logout(String[] args) {
+		AccountUI.main(args);
+		frame.dispose();
+	}
+
+	private void openSearchUI(String[] args) {
+		SearchUI.main(args);
+	}
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -52,8 +74,8 @@ public class PlayerManagementUI {
 		JButton btnAddPlayer = new JButton("Adicionar Jogador");
 		btnAddPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tmp[] = {name, password};
-				AddPlayerUI.main(tmp);
+				String args[] = {name, password};
+				openAddPlayerUI(args);
 	
 			}
 		});
@@ -64,8 +86,8 @@ public class PlayerManagementUI {
 		JButton btnReturnPlayer = new JButton("Devolver Jogador");
 		btnReturnPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tmp[] = {name, password};
-				ReturnPlayerUI.main(tmp);
+				String args[] = {name, password};
+				openReturnPlayerUI(args);
 			}
 		});
 		btnReturnPlayer.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -75,8 +97,8 @@ public class PlayerManagementUI {
 		JButton btnAddToList = new JButton("Colocar para transferência");
 		btnAddToList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tmp[] = {name, password};
-				AddToListUI.main(tmp);
+				String args[] = {name, password};
+				openAddToListUI(args);
 			}
 		});
 		btnAddToList.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -86,9 +108,8 @@ public class PlayerManagementUI {
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tmp[] = {};
-				AccountUI.main(tmp);
-				frame.dispose();
+				String args[] = {};
+				logout(args);
 			}
 		});
 		btnLogout.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -98,8 +119,8 @@ public class PlayerManagementUI {
 		JButton btnSearch = new JButton("Buscar Jogadores");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tmp[] = {name, password};
-				SearchUI.main(tmp);
+				String args[] = {name, password};
+				openSearchUI(args);
 			}
 		});
 		btnSearch.setFont(new Font("Tahoma", Font.PLAIN, 12));

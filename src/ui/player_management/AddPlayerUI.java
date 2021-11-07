@@ -45,6 +45,16 @@ public class AddPlayerUI {
 		initialize(name, password);
 	}
 
+	private void addPlayer(String name) {
+		String playerName = textPlayerName.getText();
+		if(TeamOperations.playerExists(name, playerName)) {
+			JOptionPane.showMessageDialog(frmAdicionarJogador, "Já existe jogador com esse nome!");
+		} else {
+			TeamOperations.addPlayer(name, playerName);
+			JOptionPane.showMessageDialog(frmAdicionarJogador, "Jogador adicionado com sucesso!");
+			textPlayerName.setText("");
+		}
+	}
 	
 	/**
 	 * Initialize the contents of the frame.
@@ -71,14 +81,7 @@ public class AddPlayerUI {
 		btnAddPlayer.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAddPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String playerName = textPlayerName.getText();
-				if(TeamOperations.playerExists(name, playerName)) {
-					JOptionPane.showMessageDialog(frmAdicionarJogador, "Já existe jogador com esse nome!");
-				} else {
-					TeamOperations.addPlayer(name, playerName);
-					JOptionPane.showMessageDialog(frmAdicionarJogador, "Jogador adicionado com sucesso!");
-					textPlayerName.setText("");
-				}
+				addPlayer(name);
 			
 			}
 			

@@ -49,6 +49,40 @@ public class AccountUI {
 		initialize();
 	}
 
+	private void createAccount() {
+		String pass = new String(password.getPassword());
+		if(AccountOperations.checkExistsAccountByUserName(textName.getText())) {
+			JOptionPane.showMessageDialog(frame, "Conta já existente");
+		} else {
+			if (pass.length() == 0) {
+				JOptionPane.showMessageDialog(frame, "Por favor insira um nome");
+			} else if (AccountOperations.checkPassword(pass)) {
+				AccountOperations.register(textName.getText(), pass);
+				JOptionPane.showMessageDialog(frame, "Conta criada");
+			} else {
+				JOptionPane.showMessageDialog(frame, "Senha muito fácil");
+			}
+		}
+	}
+
+	private void login() {
+		String pass = new String(password.getPassword());
+		String[] loginParameters = {textName.getText(), pass};
+		if(AccountOperations.checkExistsAccountByUserNameAndPassword(loginParameters[0], pass)) {
+			frame.dispose();
+			if(AccountOperations.checkIsAdmin(loginParameters[0])) {
+				ReportUI.main(loginParameters);
+			} else {
+				PlayerManagementUI.main(loginParameters);
+
+			}
+
+		} else {
+			JOptionPane.showMessageDialog(frame, "Usuário ou senha incorretos");
+		}
+
+	}
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -81,19 +115,7 @@ public class AccountUI {
 		JButton btnCreateAccount = new JButton("Cadastrar-se");
 		btnCreateAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String pass = new String(password.getPassword());
-				if(AccountOperations.checkExistsAccountByUserName(textName.getText())) {
-					JOptionPane.showMessageDialog(frame, "Conta já existente");
-				} else {
-					if (pass.length() == 0) {
-						JOptionPane.showMessageDialog(frame, "Por favor insira um nome");
-					} else if (AccountOperations.checkPassword(pass)) {
-						AccountOperations.register(textName.getText(), pass);
-						JOptionPane.showMessageDialog(frame, "Conta criada");
-					} else {
-						JOptionPane.showMessageDialog(frame, "Senha muito fácil");
-					}
-				}
+				createAccount();
 			}
 		});
 		btnCreateAccount.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -103,21 +125,7 @@ public class AccountUI {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String pass = new String(password.getPassword());
-				String[] loginParameters = {textName.getText(), pass};
-				if(AccountOperations.checkExistsAccountByUserNameAndPassword(loginParameters[0], pass)) {
-					frame.dispose();
-					if(AccountOperations.checkIsAdmin(loginParameters[0])) {
-						ReportUI.main(loginParameters);
-					} else {
-						PlayerManagementUI.main(loginParameters);
-						
-					}			
-					
-				} else { 
-					JOptionPane.showMessageDialog(frame, "Usuário ou senha incorretos");
-				}
-				
+				login();
 				
 			}
 		});
