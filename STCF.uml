@@ -3,394 +3,375 @@
   <ID>JAVA</ID>
   <OriginalElement>D:/Programação/STCF</OriginalElement>
   <nodes>
-    <node x="459.7095334774443" y="1553.4045960069677">business.search_operations.SearchPlayer</node>
-    <node x="1956.485411140582" y="366.8109339407745">database.user.User</node>
-    <node x="313.9998043694002" y="2160.012997454107">ui.search_ui.SearchUI</node>
-    <node x="776.9998043694001" y="2160.012997454107">ui.player_management.AddToListUI</node>
-    <node x="1535.7354111405823" y="2492.012997454107">ui.account_ui.AccountUI</node>
-    <node x="1244.9998043694" y="2182.012997454107">ui.search_ui.AuctionUI</node>
-    <node x="768.8397869513153" y="1488.468779311269">business.team_operations.TeamOperations</node>
-    <node x="1960.9854111405823" y="1488.468779311269">business.account_operations.AccountOperations</node>
-    <node x="1195.7907731487112" y="366.8109339407745">database.user.team.Team</node>
-    <node x="645.9998043694" y="2470.012997454107">ui.player_management.PlayerManagementUI</node>
-    <node x="1518.2354111405823" y="2131.0">ui.report_ui.ReportUI</node>
-    <node x="1022.9998043694001" y="2182.012997454107">ui.player_management.AddPlayerUI</node>
-    <node x="1195.7907731487112" y="722.5">database.player.Player</node>
-    <node x="1143.7907731487112" y="1059.572423958194">database.transaction.Transaction</node>
-    <node x="1369.156298807686" y="1558.0">business.admin_operations.AdminOperations</node>
-    <node x="1839.4854111405823" y="755.0">database.transaction.TransactionType</node>
-    <node x="1674.9854111405823" y="1085.7762293983653">database.Data</node>
-    <node x="530.9998043694002" y="2171.012997454107">ui.player_management.ReturnPlayerUI</node>
-    <node x="2017.2354111405823" y="1029.5">database.user.admin.Admin</node>
-    <node x="1576.4854111405823" y="542.6201259547099">database.bid.Bid</node>
+    <node x="2096.773716275026" y="2276.0">business.search_operations.SearchPlayer</node>
+    <node x="796.8127719756301" y="152.0">database.user.User</node>
+    <node x="2388.1871192341196" y="2671.0000000000005">ui.search_ui.SearchUI</node>
+    <node x="2142.187119234119" y="2671.0000000000005">ui.player_management.AddToListUI</node>
+    <node x="173.52045256745282" y="2981.0000000000005">ui.account_ui.AccountUI</node>
+    <node x="901.9371192341193" y="2693.0000000000005">ui.search_ui.AuctionUI</node>
+    <node x="242.72182332463217" y="2220.5">business.account_operations.AccountOperations</node>
+    <node x="1536.815382941692" y="2144.0">business.team_operations.TeamOperations</node>
+    <node x="1196.7711053089633" y="366.181818181818">database.user.team.Team</node>
+    <node x="1888.187119234119" y="2970.0000000000005">ui.player_management.PlayerManagementUI</node>
+    <node x="215.77045256745282" y="2627.0000000000005">ui.report_ui.ReportUI</node>
+    <node x="1639.5113636363635" y="633.0">database.player.Player</node>
+    <node x="1150.9371192341193" y="2693.0000000000005">ui.player_management.AddPlayerUI</node>
+    <node x="825.1352262837264" y="2252.5">business.admin_operations.AdminOperations</node>
+    <node x="1332.3801131418631" y="1251.818181818182">database.transaction.Transaction</node>
+    <node x="1087.8852262837263" y="1049.9090909090912">database.transaction.TransactionType</node>
+    <node x="737.6352262837263" y="1329.5909090909095">database.Data</node>
+    <node x="1896.1871192341193" y="2682.0000000000005">ui.player_management.ReturnPlayerUI</node>
+    <node x="554.6124990109992" y="660.0">database.user.admin.Admin</node>
+    <node x="1155.0619313236814" y="633.0">database.bid.Bid</node>
   </nodes>
   <notes />
   <edges>
     <edge source="business.account_operations.AccountOperations" target="database.user.User" relationship="CREATE">
-      <point x="206.5" y="15.0" />
-      <point x="2421.485411140582" y="1609.468779311269" />
-      <point x="2421.485411140582" y="435.8109339407745" />
-      <point x="87.0" y="-15.0" />
+      <point x="15.0" y="-106.0" />
+      <point x="464.22182332463217" y="302.0" />
+      <point x="-90.0" y="0.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.Data" relationship="DEPENDENCY">
-      <point x="-29.999786951315286" y="-182.49977931126887" />
-      <point x="885.34" y="1464.0" />
-      <point x="1817.985" y="1464.0" />
-      <point x="-4.1114058240054874E-4" y="160.99977060163474" />
+      <point x="-3.829416918961215E-4" y="-182.5" />
+      <point x="1683.315" y="2008.0" />
+      <point x="894.635" y="2008.0" />
+      <point x="-2.2628372630606464E-4" y="271.00009090909043" />
     </edge>
     <edge source="ui.player_management.ReturnPlayerUI" target="business.team_operations.TeamOperations" relationship="DEPENDENCY">
-      <point x="81.20972910804414" y="-95.0" />
-      <point x="725.2095334774443" y="1671.9045960069677" />
-      <point x="-146.5" y="0.9358166956988043" />
+      <point x="-113.0" y="0.0" />
+      <point x="1668.315" y="2777.0000000000005" />
+      <point x="-15.000382941691896" y="182.5" />
     </edge>
     <edge source="database.user.team.Team" target="database.player.Player" relationship="TO_MANY">
-      <point x="-56.0" y="62.0" />
-      <point x="-15.0" y="-105.5" />
+      <point x="161.99989469103662" y="15.000181818182" />
+      <point x="1581.0" y="465.182" />
+      <point x="1581.0" y="893.0" />
+      <point x="-121.00036363636355" y="0.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.transaction.Transaction" relationship="CREATE">
-      <point x="-59.999786951315286" y="-182.49977931126887" />
-      <point x="855.34" y="1337.0" />
-      <point x="1316.791" y="1337.0" />
-      <point x="2.2685128874400107E-4" y="94.499576041806" />
+      <point x="-146.5003829416919" y="17.5" />
+      <point x="1424.0" y="2344.0" />
+      <point x="1424.0" y="1839.0" />
+      <point x="1505.38" y="1839.0" />
+      <point x="-1.1314186303934548E-4" y="193.999818181818" />
     </edge>
     <edge source="database.Data" target="database.user.User" relationship="TO_MANY">
-      <point x="143.0" y="15.0" />
-      <point x="2217.735411140582" y="1261.7762293983653" />
-      <point x="2217.735411140582" y="480.8109339407745" />
-      <point x="87.0" y="30.0" />
+      <point x="-15.0" y="-271.0" />
+      <point x="-7.177545691903788" y="150.0" />
     </edge>
     <edge source="ui.player_management.PlayerManagementUI" target="ui.player_management.AddPlayerUI" relationship="DEPENDENCY">
-      <point x="121.0" y="-4.0" />
-      <point x="1123.9998043694" y="2583.012997454107" />
+      <point x="-121.0" y="-15.0" />
+      <point x="1251.9371192341193" y="3072.0000000000005" />
       <point x="0.0" y="84.0" />
     </edge>
     <edge source="database.bid.Bid" target="database.user.team.Team" relationship="DEPENDENCY">
-      <point x="-87.0004111405824" y="-15.000125954709915" />
-      <point x="1118.0" y="600.62" />
-      <point x="1118.0" y="428.811" />
-      <point x="-161.99977314871126" y="6.605922550306786E-5" />
-    </edge>
-    <edge source="database.transaction.Transaction" target="database.transaction.TransactionType" relationship="DEPENDENCY">
-      <point x="59.865525658974775" y="94.5" />
-      <point x="1376.656298807686" y="1439.0" />
-      <point x="1978.4854111405823" y="1439.0" />
-      <point x="31.0" y="73.0" />
+      <point x="15.0" y="-117.0" />
+      <point x="-88.20917398528195" y="84.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.player.Player" relationship="CREATE">
-      <point x="-14.999786951315286" y="-182.49977931126887" />
-      <point x="900.34" y="1439.0" />
-      <point x="1076.0" y="1439.0" />
-      <point x="1076.0" y="843.0" />
-      <point x="-120.99977314871126" y="15.0" />
+      <point x="146.4996170583081" y="0.0" />
+      <point x="1868.0" y="2326.5" />
+      <point x="1868.0" y="1188.409" />
+      <point x="1760.511" y="1188.409" />
+      <point x="-3.6363636354508344E-4" y="260.0" />
+    </edge>
+    <edge source="database.transaction.Transaction" target="database.transaction.TransactionType" relationship="DEPENDENCY">
+      <point x="-156.81818181818176" y="-194.0" />
+      <point x="1348.5619313236814" y="1122.9090909090912" />
+      <point x="108.0" y="0.0" />
     </edge>
     <edge source="business.account_operations.AccountOperations" target="database.user.admin.Admin" relationship="DEPENDENCY">
-      <point x="0.0" y="-106.0" />
-      <point x="58.75" y="28.0" />
+      <point x="181.890675686367" y="-106.0" />
+      <point x="-15.0" y="28.0" />
     </edge>
     <edge source="business.admin_operations.AdminOperations" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="-206.50029880768602" y="0.0" />
-      <point x="1091.0" y="1620.0" />
-      <point x="1091.0" y="828.0" />
-      <point x="-120.99977314871126" y="0.0" />
+      <point x="206.5" y="45.0" />
+      <point x="1469.0" y="2359.0" />
+      <point x="1469.0" y="1934.0909090909095" />
+      <point x="1745.511" y="1934.0909090909095" />
+      <point x="-15.000363636363545" y="260.0" />
     </edge>
     <edge source="ui.account_ui.AccountUI" target="ui.player_management.PlayerManagementUI" relationship="DEPENDENCY">
-      <point x="-91.5" y="15.0" />
-      <point x="121.0" y="26.0" />
+      <point x="91.5" y="15.0" />
+      <point x="-121.0" y="15.0" />
     </edge>
     <edge source="database.Data" target="database.transaction.TransactionType" relationship="DEPENDENCY">
-      <point x="129.5" y="-161.0" />
-      <point x="0.0" y="73.0" />
+      <point x="157.0" y="-184.77290909090948" />
+      <point x="1180.8852262837263" y="1415.818" />
+      <point x="-15.0" y="73.0" />
     </edge>
     <edge source="ui.player_management.PlayerManagementUI" target="ui.account_ui.AccountUI" relationship="DEPENDENCY">
-      <point x="121.0" y="11.0" />
-      <point x="-91.5" y="0.0" />
+      <point x="-121.0" y="0.0" />
+      <point x="91.5" y="0.0" />
     </edge>
     <edge source="ui.search_ui.SearchUI" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="1.956305998191965E-4" y="-105.99999745410696" />
-      <point x="412.5" y="2131.0" />
-      <point x="1091.0" y="2131.0" />
-      <point x="1091.0" y="828.0" />
-      <point x="-120.99977314871126" y="0.0" />
+      <point x="0.0" y="-106.0" />
+      <point x="2486.6871192341196" y="863.0" />
+      <point x="121.0" y="-30.0" />
     </edge>
     <edge source="ui.player_management.AddPlayerUI" target="business.team_operations.TeamOperations" relationship="DEPENDENCY">
-      <point x="-69.66001741808464" y="-84.0" />
-      <point x="139.0" y="182.5" />
+      <point x="101.0" y="0.0" />
+      <point x="1653.315" y="2777.0000000000005" />
+      <point x="-30.000382941691896" y="182.5" />
     </edge>
     <edge source="database.transaction.Transaction" target="database.user.team.Team" relationship="TO_ONE">
-      <point x="153.5" y="-94.5" />
-      <point x="112.5" y="62.0" />
+      <point x="-15.0" y="-194.0" />
+      <point x="131.6090078328998" y="84.0" />
     </edge>
     <edge source="ui.search_ui.SearchUI" target="database.user.team.Team" relationship="DEPENDENCY">
-      <point x="-14.99980436940018" y="-105.99999745410696" />
-      <point x="397.5" y="813.0" />
-      <point x="1118.0" y="813.0" />
-      <point x="1118.0" y="428.811" />
-      <point x="-161.99977314871126" y="6.605922550306786E-5" />
-    </edge>
-    <edge source="ui.player_management.AddToListUI" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="-14.999804369400067" y="-105.99999745410696" />
-      <point x="875.0" y="2131.0" />
-      <point x="1091.0" y="2131.0" />
-      <point x="1091.0" y="828.0" />
-      <point x="-120.99977314871126" y="0.0" />
+      <point x="15.0" y="-106.0" />
+      <point x="2501.6871192341196" y="420.182" />
+      <point x="162.0" y="-29.999818181818" />
     </edge>
     <edge source="business.search_operations.SearchPlayer" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="4.6652255571189016E-4" y="50.50040399303225" />
-      <point x="576.21" y="2131.0" />
-      <point x="1091.0" y="2131.0" />
-      <point x="1091.0" y="828.0" />
-      <point x="-120.99977314871126" y="0.0" />
+      <point x="0.0" y="-50.5" />
+      <point x="2213.273716275026" y="923.0" />
+      <point x="121.0" y="30.0" />
     </edge>
-    <edge source="ui.report_ui.ReportUI" target="business.admin_operations.AdminOperations" relationship="DEPENDENCY">
-      <point x="-51.57911233289633" y="-150.0" />
-      <point x="0.0" y="62.0" />
+    <edge source="ui.player_management.AddToListUI" target="database.player.Player" relationship="DEPENDENCY">
+      <point x="92.08659704090678" y="-106.0" />
+      <point x="2347.273716275026" y="878.0" />
+      <point x="121.0" y="-15.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.user.team.Team" relationship="DEPENDENCY">
-      <point x="146.5002130486846" y="-14.999779311268867" />
-      <point x="1118.0" y="1655.969" />
-      <point x="1118.0" y="428.811" />
-      <point x="-161.99977314871126" y="6.605922550306786E-5" />
+      <point x="14.999617058308104" y="182.5" />
+      <point x="1698.315" y="2535.0" />
+      <point x="1906.0" y="2535.0" />
+      <point x="1906.0" y="450.182" />
+      <point x="161.99989469103662" y="1.818181819999154E-4" />
+    </edge>
+    <edge source="ui.report_ui.ReportUI" target="business.admin_operations.AdminOperations" relationship="DEPENDENCY">
+      <point x="109.0" y="-143.00000000000045" />
+      <point x="1031.635" y="2634.0" />
+      <point x="-2.2628372630606464E-4" y="61.5" />
     </edge>
     <edge source="business.admin_operations.AdminOperations" target="database.user.User" relationship="DEPENDENCY">
-      <point x="66.57911233289633" y="62.0" />
-      <point x="1642.2354111405823" y="1732.969" />
-      <point x="2391.485411140582" y="1732.969" />
-      <point x="2391.485411140582" y="465.8109339407745" />
-      <point x="87.0" y="15.0" />
+      <point x="37.5" y="-61.5" />
+      <point x="1069.1352262837263" y="1117.4090909090912" />
+      <point x="894.6352262837263" y="1117.4090909090912" />
+      <point x="7.822454308096212" y="150.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.bid.Bid" relationship="CREATE">
-      <point x="15.000213048684714" y="-182.49977931126887" />
-      <point x="930.34" y="1424.0" />
-      <point x="1657.485" y="1424.0" />
-      <point x="-6.0004111405824005" y="72.99987404529008" />
+      <point x="-146.5003829416919" y="-12.5" />
+      <point x="1310.0" y="2314.0" />
+      <point x="1310.0" y="1234.318" />
+      <point x="1339.88" y="1234.318" />
+      <point x="84.31806867631872" y="117.0" />
     </edge>
     <edge source="database.player.Player" target="database.bid.Bid" relationship="TO_MANY">
-      <point x="15.0" y="-105.5" />
-      <point x="1331.7907731487112" y="630.6201259547099" />
-      <point x="-87.0" y="15.0" />
+      <point x="-121.0" y="-128.0" />
+      <point x="100.5" y="15.0" />
     </edge>
     <edge source="database.user.team.Team" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="-71.0" y="62.0" />
-      <point x="-30.0" y="-105.5" />
+      <point x="161.99989469103662" y="-14.999818181818" />
+      <point x="1951.0" y="435.182" />
+      <point x="1951.0" y="893.0" />
+      <point x="120.99963636363645" y="0.0" />
     </edge>
     <edge source="database.Data" target="database.user.User" relationship="DEPENDENCY">
-      <point x="143.0" y="30.0" />
-      <point x="2232.735411140582" y="1276.7762293983653" />
-      <point x="2232.735411140582" y="450.8109339407745" />
-      <point x="87.0" y="0.0" />
+      <point x="-45.0" y="-271.0" />
+      <point x="-37.17754569190379" y="150.0" />
     </edge>
     <edge source="business.search_operations.SearchPlayer" target="database.Data" relationship="DEPENDENCY">
-      <point x="4.6652255571189016E-4" y="-50.49959600696775" />
-      <point x="576.21" y="1464.0" />
-      <point x="1817.985" y="1464.0" />
-      <point x="-4.1114058240054874E-4" y="160.99977060163474" />
+      <point x="0.0" y="50.5" />
+      <point x="2213.273716275026" y="2550.0" />
+      <point x="807.6352262837264" y="2550.0" />
+      <point x="-86.99999999999989" y="271.0" />
     </edge>
     <edge source="database.Data" target="database.transaction.Transaction" relationship="CREATE">
-      <point x="-143.0004111405824" y="-5.704229398365442" />
-      <point x="1583.985" y="1241.072" />
-      <point x="1583.985" y="1337.0" />
-      <point x="1316.791" y="1337.0" />
-      <point x="2.2685128874400107E-4" y="94.499576041806" />
+      <point x="157.0" y="-169.77290909090948" />
+      <point x="-173.0" y="-15.000181818182" />
     </edge>
     <edge source="ui.report_ui.ReportUI" target="database.user.User" relationship="DEPENDENCY">
-      <point x="109.0" y="0.0" />
-      <point x="2451.485411140582" y="2281.0" />
-      <point x="2451.485411140582" y="405.8109339407745" />
-      <point x="87.0" y="-45.0" />
+      <point x="-109.0" y="0.0" />
+      <point x="156.02045256745282" y="2777.0000000000005" />
+      <point x="156.02045256745282" y="287.0" />
+      <point x="-90.0" y="-15.0" />
     </edge>
     <edge source="database.Data" target="database.player.Player" relationship="TO_MANY">
-      <point x="-75.0" y="-161.0" />
-      <point x="1742.9854111405823" y="843.0" />
-      <point x="121.0" y="15.0" />
+      <point x="-130.3224543080962" y="-271.0" />
+      <point x="764.3127719756301" y="119.5" />
+      <point x="1775.5113636363635" y="119.5" />
+      <point x="15.0" y="-260.0" />
     </edge>
     <edge source="ui.player_management.PlayerManagementUI" target="ui.player_management.AddToListUI" relationship="DEPENDENCY">
-      <point x="113.5" y="-117.0" />
-      <point x="-9.500000000000114" y="106.0" />
+      <point x="121.0" y="-15.0" />
+      <point x="2255.187119234119" y="3072.0000000000005" />
+      <point x="0.0" y="106.0" />
     </edge>
     <edge source="business.admin_operations.AdminOperations" target="database.Data" relationship="DEPENDENCY">
-      <point x="-2.988076860219735E-4" y="-62.0" />
-      <point x="1575.656" y="1464.0" />
-      <point x="1817.985" y="1464.0" />
-      <point x="-4.1114058240054874E-4" y="160.99977060163474" />
+      <point x="0.0" y="-61.5" />
+      <point x="137.0" y="271.0" />
     </edge>
     <edge source="ui.player_management.ReturnPlayerUI" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="1.956305998191965E-4" y="-94.99999745410696" />
-      <point x="644.0" y="2131.0" />
-      <point x="1091.0" y="2131.0" />
-      <point x="1091.0" y="828.0" />
-      <point x="-120.99977314871126" y="0.0" />
+      <point x="-73.18711923411934" y="-95.0" />
+      <point x="1936.0" y="908.0" />
+      <point x="121.0" y="15.0" />
     </edge>
     <edge source="business.account_operations.AccountOperations" target="database.Data" relationship="DEPENDENCY">
-      <point x="-15.000411140581946" y="-105.99977931126887" />
-      <point x="2152.485" y="1464.0" />
-      <point x="1817.985" y="1464.0" />
-      <point x="-4.1114058240054874E-4" y="160.99977060163474" />
+      <point x="1.7667536781118542E-4" y="-106.0" />
+      <point x="449.222" y="2008.0" />
+      <point x="894.635" y="2008.0" />
+      <point x="-2.2628372630606464E-4" y="271.00009090909043" />
     </edge>
     <edge source="database.Data" target="database.user.team.Team" relationship="CREATE">
-      <point x="-30.0" y="-161.0" />
-      <point x="1787.9854111405823" y="443.811" />
-      <point x="162.0" y="15.000066059225503" />
+      <point x="144.6775456919038" y="-271.0" />
+      <point x="1039.31277197563" y="435.182" />
+      <point x="-162.0" y="-14.999818181818" />
     </edge>
     <edge source="ui.player_management.PlayerManagementUI" target="ui.player_management.ReturnPlayerUI" relationship="DEPENDENCY">
-      <point x="-113.5" y="-117.0" />
-      <point x="9.499999999999773" y="95.0" />
+      <point x="2.2737367544323206E-13" y="-117.0" />
+      <point x="0.0" y="95.0" />
     </edge>
     <edge source="database.bid.Bid" target="database.user.User" relationship="DEPENDENCY">
-      <point x="87.0" y="0.0" />
-      <point x="2043.485411140582" y="615.6201259547099" />
-      <point x="0.0" y="84.0" />
+      <point x="-100.5" y="0.0" />
+      <point x="954.6352262837263" y="750.0" />
+      <point x="67.82245430809621" y="150.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.transaction.TransactionType" relationship="DEPENDENCY">
-      <point x="-45.0" y="-182.5" />
-      <point x="870.3397869513153" y="274.311" />
-      <point x="2147.985411140582" y="274.311" />
-      <point x="2147.985411140582" y="828.0" />
-      <point x="107.99999999999977" y="0.0" />
+      <point x="-146.5" y="2.5" />
+      <point x="1287.0" y="2329.0" />
+      <point x="91.1147737162737" y="73.0" />
     </edge>
     <edge source="database.transaction.Transaction" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="15.0" y="-94.5" />
-      <point x="15.0" y="105.5" />
+      <point x="165.5" y="-194.0" />
+      <point x="-89.63125049450036" y="260.0" />
     </edge>
     <edge source="ui.search_ui.SearchUI" target="business.search_operations.SearchPlayer" relationship="DEPENDENCY">
-      <point x="54.709729108044144" y="-106.0" />
-      <point x="-109.0" y="50.5" />
+      <point x="-15.0" y="-106.0" />
+      <point x="2471.6871192341196" y="2326.5" />
+      <point x="116.5" y="0.0" />
     </edge>
     <edge source="ui.player_management.AddToListUI" target="business.team_operations.TeamOperations" relationship="DEPENDENCY">
       <point x="0.0" y="-106.0" />
-      <point x="-25.33998258191525" y="182.5" />
+      <point x="2255.187119234119" y="2580.0" />
+      <point x="1683.315" y="2580.0" />
+      <point x="-3.829416918961215E-4" y="182.5" />
     </edge>
     <edge source="database.Data" target="database.player.Player" relationship="CREATE">
-      <point x="-90.0" y="-161.0" />
-      <point x="1727.9854111405823" y="798.0" />
-      <point x="121.0" y="-30.0" />
+      <point x="-115.32245430809621" y="-271.0" />
+      <point x="779.3127719756301" y="134.5" />
+      <point x="1760.5113636363635" y="134.5" />
+      <point x="0.0" y="-260.0" />
     </edge>
     <edge source="database.Data" target="database.transaction.Transaction" relationship="TO_MANY">
-      <point x="-143.0" y="-92.70380544017144" />
-      <point x="173.0" y="0.0" />
+      <point x="157.0" y="0.0" />
+      <point x="-173.0" y="154.77272727272748" />
     </edge>
     <edge source="database.transaction.Transaction" target="database.transaction.TransactionType" relationship="TO_ONE">
-      <point x="173.0" y="-85.79619455982856" />
-      <point x="1932.4854111405823" y="1068.2762293983653" />
-      <point x="-15.0" y="73.0" />
+      <point x="-173.0" y="-30.000181818182" />
+      <point x="1195.8852262837263" y="1415.818" />
+      <point x="0.0" y="73.0" />
     </edge>
     <edge source="database.transaction.Transaction" target="database.user.team.Team" relationship="DEPENDENCY">
-      <point x="168.5" y="-94.5" />
-      <point x="127.5" y="62.0" />
+      <point x="-131.81818181818176" y="-194.0" />
+      <point x="14.79082601471805" y="84.0" />
     </edge>
     <edge source="database.Data" target="database.user.admin.Admin" relationship="CREATE">
-      <point x="143.0" y="-15.0" />
-      <point x="2093.735411140582" y="1231.7762293983653" />
-      <point x="-15.0" y="28.0" />
+      <point x="-157.0" y="0.0" />
+      <point x="646.1124990109992" y="1600.5909090909095" />
+      <point x="0.0" y="28.0" />
     </edge>
     <edge source="ui.account_ui.AccountUI" target="ui.report_ui.ReportUI" relationship="DEPENDENCY">
-      <point x="0.0" y="-106.0" />
+      <point x="59.75" y="-106.0" />
       <point x="0.0" y="150.0" />
     </edge>
     <edge source="business.search_operations.SearchPlayer" target="database.user.team.Team" relationship="DEPENDENCY">
-      <point x="-29.999533477444288" y="-50.49959600696775" />
-      <point x="546.21" y="813.0" />
-      <point x="1118.0" y="813.0" />
-      <point x="1118.0" y="428.811" />
-      <point x="-161.99977314871126" y="6.605922550306786E-5" />
+      <point x="15.0" y="-50.5" />
+      <point x="2228.273716275026" y="405.182" />
+      <point x="162.0" y="-44.999818181818" />
     </edge>
     <edge source="ui.search_ui.AuctionUI" target="business.team_operations.TeamOperations" relationship="DEPENDENCY">
-      <point x="-9.499804369399953" y="-84.0" />
-      <point x="1350.0" y="1762.969" />
-      <point x="146.5" y="92.00022068873113" />
+      <point x="30.197880765880655" y="-84.0" />
+      <point x="1046.635" y="2480.0" />
+      <point x="-146.5" y="153.5" />
     </edge>
     <edge source="ui.player_management.PlayerManagementUI" target="ui.search_ui.SearchUI" relationship="DEPENDENCY">
-      <point x="-121.0" y="0.0" />
-      <point x="412.4998043694002" y="2587.012997454107" />
+      <point x="121.0" y="0.0" />
+      <point x="2486.6871192341196" y="3087.0000000000005" />
       <point x="0.0" y="106.0" />
     </edge>
     <edge source="ui.report_ui.ReportUI" target="database.player.Player" relationship="DEPENDENCY">
-      <point x="-109.0004111405824" y="0.0" />
-      <point x="1491.5" y="2281.0" />
-      <point x="1491.5" y="2131.0" />
-      <point x="1091.0" y="2131.0" />
-      <point x="1091.0" y="828.0" />
-      <point x="-120.99977314871126" y="0.0" />
+      <point x="108.99954743254716" y="-4.547473508864641E-13" />
+      <point x="884.437" y="2777.0" />
+      <point x="884.437" y="2649.0" />
+      <point x="1951.0" y="2649.0" />
+      <point x="1951.0" y="893.0" />
+      <point x="120.99963636363645" y="0.0" />
     </edge>
     <edge source="database.transaction.Transaction" target="database.player.Player" relationship="TO_ONE">
-      <point x="0.0" y="-94.5" />
-      <point x="0.0" y="105.5" />
+      <point x="150.5" y="-194.0" />
+      <point x="-104.63125049450036" y="260.0" />
     </edge>
     <edge source="database.Data" target="database.user.team.Team" relationship="TO_MANY">
-      <point x="0.0" y="-161.0" />
-      <point x="1817.9854111405823" y="413.811" />
-      <point x="162.0" y="-14.999933940774497" />
+      <point x="114.67754569190379" y="-271.0" />
+      <point x="1009.3127719756301" y="420.182" />
+      <point x="-162.0" y="-29.999818181818" />
     </edge>
     <edge source="database.user.team.Team" target="database.user.User" relationship="GENERALIZATION">
-      <point x="162.0" y="-29.999933940774497" />
-      <point x="-87.0" y="-51.9999339407745" />
+      <point x="-162.0" y="-44.999818181818" />
+      <point x="90.0" y="103.18200000000002" />
     </edge>
     <edge source="database.bid.Bid" target="database.user.team.Team" relationship="TO_ONE">
-      <point x="-87.0004111405824" y="29.999874045290085" />
-      <point x="1549.0" y="645.62" />
-      <point x="1549.0" y="428.811" />
-      <point x="162.00022685128874" y="6.605922550306786E-5" />
+      <point x="0.0" y="-117.0" />
+      <point x="-103.20917398528195" y="84.0" />
     </edge>
     <edge source="ui.search_ui.SearchUI" target="database.user.User" relationship="DEPENDENCY">
-      <point x="-15.0" y="106.0" />
-      <point x="397.4998043694002" y="2760.0" />
-      <point x="2436.485411140582" y="2760.0" />
-      <point x="2436.485411140582" y="420.8109339407745" />
-      <point x="87.0" y="-30.0" />
+      <point x="30.0" y="-106.0" />
+      <point x="2516.6871192341196" y="302.0" />
+      <point x="90.0" y="0.0" />
     </edge>
     <edge source="database.user.admin.Admin" target="database.user.User" relationship="GENERALIZATION">
       <point x="0.0" y="-28.0" />
-      <point x="65.25" y="84.0" />
+      <point x="646.1124990109992" y="317.0" />
+      <point x="-90.0" y="15.0" />
     </edge>
     <edge source="business.team_operations.TeamOperations" target="database.user.User" relationship="DEPENDENCY">
-      <point x="0.0" y="-182.5" />
-      <point x="915.3397869513153" y="349.3109339407745" />
-      <point x="2043.485411140582" y="349.3109339407745" />
-      <point x="0.0" y="-84.0" />
+      <point x="-146.5" y="123.5" />
+      <point x="225.22182332463217" y="2450.0" />
+      <point x="225.22182332463217" y="272.0" />
+      <point x="-90.0" y="-30.0" />
     </edge>
     <edge source="ui.report_ui.ReportUI" target="database.transaction.Transaction" relationship="DEPENDENCY">
-      <point x="-66.57941114058235" y="-150.0" />
-      <point x="1560.656" y="1717.969" />
-      <point x="1334.0" y="1717.969" />
-      <point x="1334.0" y="1322.0" />
-      <point x="1301.791" y="1322.0" />
-      <point x="-14.999773148711256" y="94.499576041806" />
+      <point x="-4.5256745283950295E-4" y="-150.00000000000045" />
+      <point x="324.77" y="2465.0" />
+      <point x="1261.0" y="2465.0" />
+      <point x="1261.0" y="1445.818" />
+      <point x="-173.00011314186304" y="-1.818181819999154E-4" />
     </edge>
     <edge source="business.admin_operations.AdminOperations" target="database.transaction.Transaction" relationship="DEPENDENCY">
-      <point x="-206.50029880768602" y="-15.0" />
-      <point x="1334.0" y="1605.0" />
-      <point x="1334.0" y="1322.0" />
-      <point x="1301.791" y="1322.0" />
-      <point x="-14.999773148711256" y="94.499576041806" />
+      <point x="206.5" y="30.0" />
+      <point x="1345.4371192341193" y="2344.0" />
+      <point x="-159.9429939077438" y="194.0" />
     </edge>
     <edge source="database.Data" target="database.bid.Bid" relationship="CREATE">
-      <point x="-135.5" y="-161.0" />
-      <point x="19.0" y="73.0" />
+      <point x="129.6775456919038" y="-271.0" />
+      <point x="1024.31277197563" y="765.0" />
+      <point x="-100.5" y="15.0" />
     </edge>
     <edge source="database.player.Player" target="database.bid.Bid" relationship="DEPENDENCY">
-      <point x="0.0" y="-105.5" />
-      <point x="1316.7907731487112" y="615.6201259547099" />
-      <point x="-87.0" y="0.0" />
+      <point x="-121.0" y="-143.0" />
+      <point x="100.5" y="0.0" />
     </edge>
     <edge source="ui.account_ui.AccountUI" target="business.account_operations.AccountOperations" relationship="DEPENDENCY">
-      <point x="91.5" y="0.0" />
-      <point x="2167.485411140582" y="2598.012997454107" />
-      <point x="0.0" y="106.0" />
+      <point x="-66.75" y="-106.0" />
+      <point x="198.27045256745282" y="2326.5" />
+      <point x="-206.5" y="0.0" />
     </edge>
     <edge source="database.Data" target="database.user.admin.Admin" relationship="TO_MANY">
-      <point x="143.0" y="0.0" />
-      <point x="2108.735411140582" y="1246.7762293983653" />
-      <point x="0.0" y="28.0" />
+      <point x="-157.0" y="-15.0" />
+      <point x="673.2218233246322" y="1585.5909090909095" />
+      <point x="27.10932431363301" y="28.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.26695929768555465" showDependencies="true" x="1388.0" y="1517.0" />
+  <settings layout="Hierarchic" zoom="0.3653895685769478" showDependencies="true" x="1371.0" y="2326.7130207577297" />
   <SelectedNodes>
-    <node>database.transaction.Transaction</node>
+    <node>business.search_operations.SearchPlayer</node>
   </SelectedNodes>
   <Categories>
     <Category>Constructors</Category>
     <Category>Fields</Category>
     <Category>Methods</Category>
-    <Category>Properties</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
