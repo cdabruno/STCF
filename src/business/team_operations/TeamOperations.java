@@ -78,7 +78,7 @@ public class TeamOperations {
 
     // Verifica se um jogador aceita ser emprestado
     public static boolean playerAcceptsLoan(String playerName){
-        return true; // ????????????????????????? insoluvel
+        return true;
     }
 
     // Efetiva o emprestimo de um jogador para um time
