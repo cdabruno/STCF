@@ -63,6 +63,10 @@ public class TeamOperations {
         player.setCurrentValue(value);
         player.getBids().add(new Bid(null, value));
     }
+    
+    public static boolean playerBelongstoTeam(String teamName, String playerName) {
+    	return Data.getTeamById(Data.getPlayerByName(playerName).getIdOriginalTeam()).getName() != teamName;
+    }
 
     // Verifica se um jogador com um determinado nome já existe
     public static boolean playerExists(String teamName, String playerName){
@@ -73,6 +77,7 @@ public class TeamOperations {
     public static void addPlayer(String teamName, String playerName){
         Team team = Data.getTeamByName(teamName);
         Player player = new Player(playerName, Data.getPlayers().size() + 1, team.getIdUser(), 0, false);
+        Data.getHashPlayers().put(Data.getPlayers().size() + 1, player);
         team.addPlayer(player);
     }
 
@@ -81,37 +86,6 @@ public class TeamOperations {
         return true;
     }
 
-    // Efetiva o emprestimo de um jogador para um time
-    public static void loanPlayer(String teamName, String playerName){
-        
-        Player player = Data.getPlayerByName(playerName);
-        Team sourceTeam = Data.getTeamById(player.getIdOriginalTeam());
-        Team destinationTeam = Data.getTeamByName(teamName);
-        Transaction transaction = new Transaction(player, sourceTeam, destinationTeam, TransactionType.EMPRESTIMO, 0);
-        
-        destinationTeam.addPlayer(player);
-        sourceTeam.removePlayer(player);
-        
-        player.setIdOriginalTeam(sourceTeam.getIdUser());
-        player.setIdTeam(destinationTeam.getIdUser());
-        player.setCurrentValue(0);
-        player.setOnSale(false);
-        player.getBids().clear();
-        
-        Data.getHashTransactions().put(Data.getTransactions().size()+1, transaction);
-    
-    }
-
-    // Novo bid  de um time em um jogador com um valor
-    public static void newBid(String teamName, String playerName, float newValue){
-        Player player = Data.getPlayerByName(playerName);
-        Team team = Data.getTeamByName(teamName);
-
-        Bid bid = new Bid(team, newValue);
-
-        player.getBids().add(bid);
-        player.setCurrentValue(newValue);
-    }
 
     // Cancela todos bids de um time em um jogador
     public static void cancelBids(String teamName, String playerName){
@@ -133,6 +107,17 @@ public class TeamOperations {
 
         return player.getBids().get(player.getBids().size()-1).getBiddingTeam().getName();
     }
+    
+    // Novo bid  de um time em um jogador com um valor
+    public static void newBid(String teamName, String playerName, float newValue){
+        Player player = Data.getPlayerByName(playerName);
+        Team team = Data.getTeamByName(teamName);
+
+        Bid bid = new Bid(team, newValue);
+
+        player.getBids().add(bid);
+        player.setCurrentValue(newValue);
+    }
 
     // Encerra o leilão do player, realizando a transferencia.
     public static void endAuction(String playerName){
@@ -153,6 +138,27 @@ public class TeamOperations {
         player.setOnSale(false);
         player.getBids().clear();
 
+    }
+    
+    // Efetiva o emprestimo de um jogador para um time
+    public static void loanPlayer(String teamName, String playerName){
+        
+        Player player = Data.getPlayerByName(playerName);
+        Team sourceTeam = Data.getTeamById(player.getIdOriginalTeam());
+        Team destinationTeam = Data.getTeamByName(teamName);
+        Transaction transaction = new Transaction(player, sourceTeam, destinationTeam, TransactionType.EMPRESTIMO, 0);
+        
+        destinationTeam.addPlayer(player);
+        sourceTeam.removePlayer(player);
+        
+        player.setIdOriginalTeam(sourceTeam.getIdUser());
+        player.setIdTeam(destinationTeam.getIdUser());
+        player.setCurrentValue(0);
+        player.setOnSale(false);
+        player.getBids().clear();
+        
+        Data.getHashTransactions().put(Data.getTransactions().size()+1, transaction);
+    
     }
 
 

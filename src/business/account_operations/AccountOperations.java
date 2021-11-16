@@ -1,12 +1,15 @@
 package business.account_operations;
 import database.user.*;
 import database.user.admin.Admin;
+import database.user.team.Team;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import database.*;
+import database.player.Player;
 
 public class AccountOperations {
 
@@ -35,8 +38,9 @@ public class AccountOperations {
 
     public static void register(String name, String password) {
         int userId = generateUserId();
-        User user = new User(name, userId, password);
+        Team user = new Team(name, userId, password, new HashMap<Integer, Player>());
         Data.getHashUsers().put(user.getIdUser(), user);
+        Data.getHashTeams().put(user.getIdUser(), user);
     }
 
     public static boolean checkIsAdmin(String name){

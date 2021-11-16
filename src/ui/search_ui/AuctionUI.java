@@ -126,7 +126,7 @@ public class AuctionUI {
 				while(new Date().before(endDate)) {
 					lblPlayerName.setText(playerName +" "+ TimeUnit.MILLISECONDS.toSeconds(endDate.getTime() - new Date().getTime()) + "s");
 					t= currentDate.getTime();
-					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS)/6);
+					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
 				}
 				
 				

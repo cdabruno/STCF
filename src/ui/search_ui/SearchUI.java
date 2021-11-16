@@ -117,6 +117,8 @@ public class SearchUI {
 				if (!TeamOperations.playerOnSale(playerName)) {
 					JOptionPane.showMessageDialog(frmBusca, "Jogador não está mais na lista!");
 					search();
+				}else if (TeamOperations.playerBelongstoTeam(name, playerName)) {
+					JOptionPane.showMessageDialog(frmBusca, "Jogador é do seu time!");
 				} else {
 					AuctionUI.main(args);
 				}
@@ -133,6 +135,8 @@ public class SearchUI {
 				if (!TeamOperations.playerOnSale(playerName)) {
 					JOptionPane.showMessageDialog(frmBusca, "Jogador não está mais na lista!");
 					search();
+				}else if (TeamOperations.playerBelongstoTeam(name, playerName)) {
+					JOptionPane.showMessageDialog(frmBusca, "Jogador é do seu time!");
 				} else if(TeamOperations.playerAcceptsLoan(playerName)) {
 					TeamOperations.loanPlayer(name, playerName);
 					JOptionPane.showMessageDialog(frmBusca, "Empréstimo bem sucedido!");

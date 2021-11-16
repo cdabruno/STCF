@@ -74,6 +74,7 @@ public class Data {
     public static List<Player> getPlayers() {
         return new ArrayList<Player>(players.values());
     }
+    
 
     public static void setPlayers(Map<Integer, Player> newPlayers) {
         players = newPlayers;
@@ -129,6 +130,15 @@ public class Data {
     public static Map<Integer, User> getHashUsers() {
         return users;
     }
+    
+    public static Map<Integer, Team> getHashTeams() {
+        return teams;
+    }
+    
+    public static Map<Integer, Player> getHashPlayers() {
+        return players;
+    }
+
 
     public static void setHashUsers(Map<Integer, User> users) {
         Data.users = users;
