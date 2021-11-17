@@ -97,15 +97,6 @@ public class AuctionUI {
 		btnNewBid.setBounds(27, 278, 224, 44);
 		frame.getContentPane().add(btnNewBid);
 		
-		JButton btnCancel = new JButton("Cancelar");
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TeamOperations.cancelBids(name, playerName);
-				frame.dispose();
-			}
-		});
-		btnCancel.setBounds(27, 334, 224, 44);
-		frame.getContentPane().add(btnCancel);
 		
 		textValue = new JTextField();
 		textValue.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -128,6 +119,9 @@ public class AuctionUI {
 				long t= currentDate.getTime();
 				Date endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
 				while(new Date().before(endDate)) {
+					if (isCancelled()) {
+						return null;
+					}
 					lblPlayerName.setText(playerName +" "+ TimeUnit.MILLISECONDS.toSeconds(endDate.getTime() - new Date().getTime()) + "s");
 					t= currentDate.getTime();
 					endDate=new Date(t + (ONE_MINUTE_IN_MILLIS));
@@ -146,6 +140,17 @@ public class AuctionUI {
 			    return null;
 			}
 		};
+		
+		JButton btnCancel = new JButton("Cancelar");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TeamOperations.cancelBids(name, playerName);
+				worker.cancel(true);
+				frame.dispose();
+			}
+		});
+		btnCancel.setBounds(27, 334, 224, 44);
+		frame.getContentPane().add(btnCancel);
 		
 		WindowListener exitListener = new WindowAdapter() {
 		    @Override

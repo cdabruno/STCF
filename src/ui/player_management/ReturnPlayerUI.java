@@ -94,9 +94,13 @@ public class ReturnPlayerUI {
 		btnReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String playerName = (String) list.getSelectedValue();
-				TeamOperations.returnPlayer(name, playerName);
-				JOptionPane.showMessageDialog(frmDevolverJogador, "Jogador devolvido com sucesso!");
-				getBorrowedPlayers(name);
+				if (playerName == null) {
+					JOptionPane.showMessageDialog(frmDevolverJogador, "Selecione um jogador.");
+				} else {
+					TeamOperations.returnPlayer(name, playerName);
+					JOptionPane.showMessageDialog(frmDevolverJogador, "Jogador devolvido com sucesso!");
+					getBorrowedPlayers(name);
+				}
 			}
 		});
 		btnReturn.setBounds(34, 375, 233, 39);

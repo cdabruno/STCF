@@ -102,11 +102,15 @@ public class AddToListUI {
 		btnAddToTransfer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Float value = Float.parseFloat(textValue.getText());
 					String playerName = (String) list.getSelectedValue();
-					TeamOperations.putOnList(name, playerName, value);
-					JOptionPane.showMessageDialog(frame, "Jogador adicionado à lista de transferência com sucesso!");
-					getPlayersNotOnList(name);
+					if (playerName == null) {
+						JOptionPane.showMessageDialog(frame, "Selecione um jogador.");
+					} else {
+						Float value = Float.parseFloat(textValue.getText());
+						TeamOperations.putOnList(name, playerName, value);
+						JOptionPane.showMessageDialog(frame, "Jogador adicionado à lista de transferência com sucesso!");
+						getPlayersNotOnList(name);
+					}
 				} catch(NumberFormatException exc){
 					JOptionPane.showMessageDialog(frame, "Deve ser um valor numérico");
 				}

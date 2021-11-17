@@ -81,7 +81,11 @@ public class AddPlayerUI {
 		btnAddPlayer.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAddPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addPlayer(name);
+				if(textPlayerName.getText().strip().length() > 0 ) {
+					addPlayer(name);
+				} else {
+					JOptionPane.showMessageDialog(frmAdicionarJogador, "Escreva o nome do jogador.");
+				}
 			
 			}
 			
