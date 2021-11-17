@@ -65,7 +65,7 @@ public class TeamOperations {
     }
     
     public static boolean playerBelongstoTeam(String teamName, String playerName) {
-    	return Data.getTeamById(Data.getPlayerByName(playerName).getIdOriginalTeam()).getName() != teamName;
+    	return Data.getTeamById(Data.getPlayerByName(playerName).getIdOriginalTeam()).getName().equals(teamName);
     }
 
     // Verifica se um jogador com um determinado nome já existe

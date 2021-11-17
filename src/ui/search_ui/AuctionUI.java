@@ -27,6 +27,7 @@ public class AuctionUI {
 	private JFrame frame;
 	private JTextField textValue;
 	private Date currentDate;
+	protected float bidValue;
 
 	/**
 	 * Launch the application.
@@ -61,6 +62,8 @@ public class AuctionUI {
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Leilão");
 		
+		bidValue = value;
+		
 		JLabel lblPlayerName = new JLabel(playerName);
 		lblPlayerName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblPlayerName.setBounds(27, 46, 224, 44);
@@ -77,12 +80,13 @@ public class AuctionUI {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					float newValue = Float.parseFloat(textValue.getText());
-					if(newValue <= value*1.05) {
+					if(newValue < bidValue*1.05) {
 						JOptionPane.showMessageDialog(frame, "Valor não é 5% maior que valor atual");
 					} else {
 						TeamOperations.newBid(name, playerName, newValue);
 						lblCurrentValue.setText(Float.toString(newValue));
 						currentDate = new Date();
+						bidValue = newValue;
 					}
 				} catch (Exception exc) {
 					JOptionPane.showMessageDialog(frame, "Valor não é um número");
@@ -147,6 +151,7 @@ public class AuctionUI {
 		    @Override
 		    public void windowClosing(WindowEvent e) {
 		    	TeamOperations.cancelBids(name, playerName);
+		    	worker.cancel(true);
 				frame.dispose();
 		    }
 		};
