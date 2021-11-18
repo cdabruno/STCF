@@ -110,6 +110,11 @@ public class SearchUI {
 		JButton btnBuy = new JButton("Comprar");
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if (table.getSelectedRow() == -1) {
+					JOptionPane.showMessageDialog(frmBusca, "Selecione um jogador.");
+				} else {
+				
 				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
 				float currentValue = Float.parseFloat(table.getModel().getValueAt(table.getSelectedRow(), 2).toString());
 				String args[] = {name, playerName, Float.toString(currentValue)};
@@ -122,6 +127,7 @@ public class SearchUI {
 				} else {
 					AuctionUI.main(args);
 				}
+				}
 			}
 		});
 		btnBuy.setBounds(42, 390, 85, 21);
@@ -131,6 +137,9 @@ public class SearchUI {
 		btnLoan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				if (table.getSelectedRow() == -1) {
+					JOptionPane.showMessageDialog(frmBusca, "Selecione um jogador.");
+				} else {
 				String playerName = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
 				if (!TeamOperations.playerOnSale(playerName)) {
 					JOptionPane.showMessageDialog(frmBusca, "Jogador não está mais na lista!");
@@ -144,6 +153,7 @@ public class SearchUI {
 				} else {
 					//JOptionPane.showMessageDialog(frmBusca, "Entendo" + name + "mas rodou igual");
 					JOptionPane.showMessageDialog(frmBusca, "Empréstimo falhou");
+				}
 				}
 			}
 		});

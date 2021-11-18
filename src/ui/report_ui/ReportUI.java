@@ -183,6 +183,10 @@ public class ReportUI {
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
+			
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
 		};
 		
 		table.setModel(tableModel);
